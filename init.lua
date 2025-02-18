@@ -2,6 +2,9 @@ require( 'nixCatsUtils' ).setup({
   non_nix_value = true,
 })
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 local function getlockfilepath()
   if require( 'nixCatsUtils' ).isNixCats and type( nixCats.settings.unwrappedCfgPath ) == "string" then
     return nixCats.settings.unwrappedCfgPath .. "/lazy-lock.json"
@@ -36,6 +39,7 @@ require( 'nixCatsUtils.lazyCat' ).setup( nixCats.pawsible({ "allPlugins", "start
     require( "pxndxs.lsp" ),
     require( "pxndxs.treesitter" ),
     require( "pxndxs.file-manager" ),
+    require( "pxndxs.fuzzy-finder" ),
 
     { import = 'custom.plugins' },
   },

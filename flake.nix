@@ -99,6 +99,7 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           lua-language-server
+          fzf
         ];
       };
 
@@ -121,6 +122,11 @@
 
         file-manager = with pkgs.vimPlugins; [
           oil-nvim
+          mini-icons
+        ];
+
+        fuzzy-finder = with pkgs.vimPlugins; [
+          fzf-lua
           mini-icons
         ];
       };
@@ -203,6 +209,7 @@
           lsp = true;
           syntax = true;
           file-manager = true;
+          fuzzy-finder = true;
 
           # gitPlugins = true;
           customPlugins = true;
