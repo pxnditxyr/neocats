@@ -33,7 +33,7 @@ local lazyOptions = {
 
 require( 'nixCatsUtils.lazyCat' ).setup( nixCats.pawsible({ "allPlugins", "start", "lazy.nvim" }),
   {
-    'tpope/vim-surround',
+    require("pxndxs.lsp"),
     { import = 'custom.plugins' },
   },
   lazyOptions

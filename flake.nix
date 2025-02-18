@@ -98,6 +98,7 @@
       # this includes LSPs
       lspsAndRuntimeDeps = {
         general = with pkgs; [
+          lua-language-server
         ];
       };
 
@@ -105,7 +106,10 @@
       startupPlugins = {
         # gitPlugins = with pkgs.neovimPlugins; [ ];
         general = with pkgs.vimPlugins; [
+          fidget-nvim
           vim-surround
+          nvim-lspconfig
+          lazydev-nvim
         ];
       };
 
