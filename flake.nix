@@ -106,10 +106,22 @@
       startupPlugins = {
         # gitPlugins = with pkgs.neovimPlugins; [ ];
         general = with pkgs.vimPlugins; [
-          fidget-nvim
           vim-surround
+        ];
+
+        lsp = with pkgs.vimPlugins; [
           nvim-lspconfig
+          fidget-nvim
           lazydev-nvim
+        ];
+
+        syntax = with pkgs.vimPlugins; [
+          nvim-treesitter.withAllGrammars
+        ];
+
+        file-manager = with pkgs.vimPlugins; [
+          oil-nvim
+          mini-icons
         ];
       };
 
@@ -187,7 +199,12 @@
         # (and other information to pass to lua)
         categories = {
           general = true;
-          gitPlugins = true;
+
+          lsp = true;
+          syntax = true;
+          file-manager = true;
+
+          # gitPlugins = true;
           customPlugins = true;
           test = true;
           example = {
