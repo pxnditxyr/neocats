@@ -43,6 +43,7 @@ require( 'nixCatsUtils.lazyCat' ).setup( nixCats.pawsible({ "allPlugins", "start
     require( "pxndxs.completion" ),
     require( "pxndxs.git" ),
     require( "pxndxs.ai" ),
+    require( "pxndxs.colorscheme" ),
 
     { import = 'custom.plugins' },
   },

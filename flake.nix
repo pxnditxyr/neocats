@@ -101,6 +101,7 @@
 
         ui = with pkgs.vimPlugins; [
           lualine-nvim
+          tokyonight-nvim
         ];
 
         ai = with pkgs.vimPlugins; [
