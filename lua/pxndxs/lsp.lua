@@ -110,6 +110,8 @@ return {
         },
       },
     }
+    servers.ts_ls = {};
+    servers.angularls = {};
 
     if require( 'nixCatsUtils' ).isNixCats then
       for server_name,_ in pairs( servers ) do

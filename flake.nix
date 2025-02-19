@@ -8,6 +8,14 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
+
+    blink = {
+      url = "github:Saghen/blink.cmp";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
   };
 
   outputs = { self, nixpkgs, nixCats, ... }@inputs: let
@@ -39,6 +47,9 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           lua-language-server
+          typescript-language-server
+          angular-language-server
+          pyright
           nixd
 
           fzf
@@ -70,6 +81,13 @@
         fuzzy-finder = with pkgs.vimPlugins; [
           fzf-lua
           mini-icons
+        ];
+
+        completion = with pkgs.vimPlugins; [
+          (inputs.blink.packages.${ pkgs.system }.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
+          blink-compat
+          blink-emoji-nvim
+          luasnip
         ];
       };
 
@@ -122,6 +140,7 @@
           syntax = true;
           file-manager = true;
           fuzzy-finder = true;
+          completion = true;
 
           # gitPlugins = true;
           customPlugins = true;
