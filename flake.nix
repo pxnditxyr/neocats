@@ -151,7 +151,7 @@
 
     # see :help nixCats.flake.outputs.packageDefinitions
     packageDefinitions = {
-      nvim = {pkgs , ... }: {
+      neocats = {pkgs , ... }: {
         settings = {
           wrapRc = true;
           aliases = [ "vim" ];
@@ -185,7 +185,7 @@
         };
       };
     };
-    defaultPackageName = "nvim";
+    defaultPackageName = "neocats";
   in
 
   forEachSystem (system: let
