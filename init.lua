@@ -3,6 +3,7 @@ require( 'nixCatsUtils' ).setup({
 })
 
 require( 'pxndxs.options' )
+require( 'pxndxs.keymaps' )
 
 local function getlockfilepath()
   if require( 'nixCatsUtils' ).isNixCats and type( nixCats.settings.unwrappedCfgPath ) == "string" then
