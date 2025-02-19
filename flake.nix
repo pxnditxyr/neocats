@@ -50,12 +50,17 @@
 
     categoryDefinitions = { pkgs, settings, categories, extra, name, mkNvimPlugin, ... }@packageDef: {
       lspsAndRuntimeDeps = {
+
         general = with pkgs; [
           lua-language-server
           typescript-language-server
           angular-language-server
           pyright
           nixd
+          yaml-language-server
+          tailwindcss-language-server
+          htmx-lsp
+          astro-language-server
 
           fzf
           ripgrep
@@ -69,6 +74,7 @@
           # pkgs.neovimPlugins.snacks-nvim
           snacks-nvim
           ultimate-autopair-nvim
+          nvim-highlight-colors
         ];
 
         lsp = with pkgs.vimPlugins; [
@@ -112,6 +118,7 @@
           neogit
           plenary-nvim
           diffview-nvim
+          gitsigns-nvim
         ];
       };
 

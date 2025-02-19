@@ -114,6 +114,11 @@ return {
     }
     servers.ts_ls = {};
     servers.angularls = {};
+    servers.yamlls = {};
+    servers.prismals = {};
+    servers.tailwindcss = {};
+    servers.htmx = {};
+    servers.astro = {};
 
     if require( 'nixCatsUtils' ).isNixCats then
       for server_name,_ in pairs( servers ) do
