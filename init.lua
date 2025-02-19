@@ -2,8 +2,7 @@ require( 'nixCatsUtils' ).setup({
   non_nix_value = true,
 })
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+require( 'pxndxs.options' )
 
 local function getlockfilepath()
   if require( 'nixCatsUtils' ).isNixCats and type( nixCats.settings.unwrappedCfgPath ) == "string" then
@@ -41,6 +40,8 @@ require( 'nixCatsUtils.lazyCat' ).setup( nixCats.pawsible({ "allPlugins", "start
     require( "pxndxs.file-manager" ),
     require( "pxndxs.fuzzy-finder" ),
     require( "pxndxs.completion" ),
+    require( "pxndxs.git" ),
+    require( "pxndxs.ai" ),
 
     { import = 'custom.plugins' },
   },

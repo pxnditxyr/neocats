@@ -16,6 +16,11 @@
       };
     };
 
+    # "plugins-snacks.nvim" = {
+    #   url = "github:folke/snacks.nvim";
+    #   flake = false;
+    # };
+
   };
 
   outputs = { self, nixpkgs, nixCats, ... }@inputs: let
@@ -61,6 +66,9 @@
         # gitPlugins = with pkgs.neovimPlugins; [ ];
         general = with pkgs.vimPlugins; [
           vim-surround
+          # pkgs.neovimPlugins.snacks-nvim
+          snacks-nvim
+          ultimate-autopair-nvim
         ];
 
         lsp = with pkgs.vimPlugins; [
@@ -88,18 +96,33 @@
           blink-compat
           blink-emoji-nvim
           luasnip
+          friendly-snippets
+        ];
+
+        ui = with pkgs.vimPlugins; [
+          lualine-nvim
+        ];
+
+        ai = with pkgs.vimPlugins; [
+          supermaven-nvim
+        ];
+
+        git = with pkgs.vimPlugins; [
+          neogit
+          plenary-nvim
+          diffview-nvim
         ];
       };
 
       optionalPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [ ];
-        general = with pkgs.vimPlugins; [ ];
+        # gitPlugins = with pkgs.neovimPlugins; [ ];
+        # general = with pkgs.vimPlugins; [ ];
       };
 
       sharedLibraries = {
-        general = with pkgs; [
-          # libgit2
-        ];
+        # general = with pkgs; [
+        #   # libgit2
+        # ];
       };
 
       environmentVariables = {
@@ -141,6 +164,10 @@
           file-manager = true;
           fuzzy-finder = true;
           completion = true;
+          git = true;
+
+          ui = true;
+          ai = true;
 
           # gitPlugins = true;
           customPlugins = true;
