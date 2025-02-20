@@ -108,13 +108,13 @@ return {
     --   end,
     --   desc = "Dismiss All Notifications",
     -- },
-    -- {
-    --   "<leader>pp",
-    --   function()
-    --     require( "snacks" ).picker.smart({ multi = { "buffers", "files" } })
-    --   end,
-    --   desc = "Smart Picker",
-    -- },
+    {
+      "<leader>ff",
+      function()
+        require( "snacks" ).picker.smart({ multi = { "buffers", "files" } })
+      end,
+      desc = "Smart Picker",
+    },
     -- {
     --   "<leader>pe",
     --   function()
@@ -122,13 +122,13 @@ return {
     --   end,
     --   desc = "Buffers Picker",
     -- },
-    -- {
-    --   "<leader>pg",
-    --   function()
-    --     require( "snacks" ).picker.grep()
-    --   end,
-    --   desc = "Grep Picker",
-    -- },
+    {
+      "<leader>fg",
+      function()
+        require( "snacks" ).picker.grep()
+      end,
+      desc = "Grep Picker",
+    },
     -- {
     --   "<leader>ph",
     --   function()
@@ -136,13 +136,13 @@ return {
     --   end,
     --   desc = "Help Picker",
     -- },
-    -- {
-    --   "<leader>ps",
-    --   function()
-    --     require( "snacks" ).picker.git_status()
-    --   end,
-    --   desc = "Git Status Picker",
-    -- },
+    {
+      "<leader>fs",
+      function()
+        require( "snacks" ).picker.git_status()
+      end,
+      desc = "Git Status Picker",
+    },
     -- {
     --   "<leader>:",
     --   function()

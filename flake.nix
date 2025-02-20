@@ -66,6 +66,9 @@
 
           fzf
           ripgrep
+
+          # psql
+          postgresql
         ];
       };
 
@@ -94,11 +97,6 @@
           mini-icons
         ];
 
-        fuzzy-finder = with pkgs.vimPlugins; [
-          fzf-lua
-          mini-icons
-        ];
-
         completion = with pkgs.vimPlugins; [
           (inputs.blink.packages.${ pkgs.system }.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
           blink-compat
@@ -121,6 +119,13 @@
           plenary-nvim
           diffview-nvim
           gitsigns-nvim
+          fzf-lua
+        ];
+
+        db-client = with pkgs.vimPlugins; [
+          vim-dadbod-ui
+          vim-dadbod
+          vim-dadbod-completion
         ];
       };
 
@@ -172,12 +177,13 @@
           lsp = true;
           syntax = true;
           file-manager = true;
-          fuzzy-finder = true;
           completion = true;
           git = true;
 
           ui = true;
           ai = true;
+
+          db-client = true;
 
           # gitPlugins = true;
           customPlugins = true;

@@ -39,7 +39,6 @@ require( 'nixCatsUtils.lazyCat' ).setup( nixCats.pawsible({ "allPlugins", "start
     require( "pxndxs.lsp" ),
     require( "pxndxs.treesitter" ),
     require( "pxndxs.file-manager" ),
-    require( "pxndxs.fuzzy-finder" ),
     require( "pxndxs.completion" ),
     require( "pxndxs.git" ),
     require( "pxndxs.ai" ),

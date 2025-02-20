@@ -77,13 +77,20 @@ return {
 
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji' },
+        per_filetype = {
+          sql = { 'snippets', 'dadbod', 'buffer', 'emoji' },
+        },
         providers = {
           emoji = {
             module = "blink-emoji",
             name = "Emoji",
             score_offset = 15,
             opts = { insert = true },
-          }
+          },
+          dadbod = {
+            name = "Dadbod",
+            module = "vim_dadbod_completion.blink"
+          },
         }
       },
       -- completion = {
