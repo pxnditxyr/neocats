@@ -53,13 +53,15 @@
 
         general = with pkgs; [
           lua-language-server
+
+          typescript
           typescript-language-server
+
           angular-language-server
           pyright
           nixd
           yaml-language-server
           tailwindcss-language-server
-          htmx-lsp
           astro-language-server
 
           fzf
