@@ -90,6 +90,8 @@
 
         syntax = with pkgs.vimPlugins; [
           nvim-treesitter.withAllGrammars
+          rainbow-delimiters-nvim
+          nvim-ts-autotag
         ];
 
         file-manager = with pkgs.vimPlugins; [
