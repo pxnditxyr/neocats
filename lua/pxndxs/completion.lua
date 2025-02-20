@@ -6,7 +6,6 @@ return {
     opts = {},
   },
   {
-
     'saghen/blink.cmp',
     dependencies = {
       'rafamadriz/friendly-snippets',
@@ -29,6 +28,8 @@ return {
         preset = 'default',
         ["<Tab>"] = {},
         ["<S-Tab>"] = {},
+        ["<C-f>"] = { "snippet_forward", "fallback" },
+        ["<C-g>"] = { "snippet_backward", "fallback" },
       },
 
       signature = {
@@ -60,7 +61,7 @@ return {
           Operator = "➗",
           Property = "🏠",
           Reference = "🔍",
-          Snippet = "📑",
+          Snippet = " ",
           Struct = "🛠️",
           Text = "📜",
           TypeParameter = "🔠",
@@ -68,6 +69,10 @@ return {
           Value = "💎",
           Variable = "🔄",
         },
+      },
+
+      snippets = {
+        preset = "luasnip"
       },
 
       sources = {
@@ -81,45 +86,17 @@ return {
           }
         }
       },
-      completion = {
-        menu = {
-          auto_show = function( ctx )
-            if vim.tbl_contains( { 'markdown' }, vim.bo.filetype ) then
-              return false
-            end
-
-            return ctx.mode ~= "cmdline" or not vim.tbl_contains( { '/', '?' }, vim.fn.getcmdtype() )
-          end,
-
-          draw = {
-            components = {
-              kind_icon = {
-                -- text = function(ctx)
-                --   local icon = ctx.kind_icon
-                --   if ctx.item.source_name == "LSP" then
-                --     local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
-                --     if color_item and color_item.abbr then
-                --       icon = color_item.abbr
-                --     end
-                --   end
-                --   return icon .. ctx.icon_gap
-                -- end,
-                -- highlight = function(ctx)
-                --   local highlight = "BlinkCmpKind" .. ctx.kind
-                --   if ctx.item.source_name == "LSP" then
-                --     local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
-                --     if color_item and color_item.abbr_hl_group then
-                --       highlight = color_item.abbr_hl_group
-                --     end
-                --   end
-                --   return highlight
-                -- end,
-              },
-            },
-          },
-
-        },
-      },
+      -- completion = {
+      --   menu = {
+      --     auto_show = function( ctx )
+      --       if vim.tbl_contains( { 'markdown' }, vim.bo.filetype ) then
+      --         return false
+      --       end
+      --
+      --       return ctx.mode ~= "cmdline" or not vim.tbl_contains( { '/', '?' }, vim.fn.getcmdtype() )
+      --     end,
+      --   },
+      -- },
     },
     opts_extend = { "sources.default" },
     config = function( _, opts )

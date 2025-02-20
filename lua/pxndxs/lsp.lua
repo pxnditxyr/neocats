@@ -75,13 +75,13 @@ return {
       end,
     } )
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local capabilities = require( "blink.cmp" ).get_lsp_capabilities()
     -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local servers = {}
     -- servers.clangd = {},
     -- servers.gopls = {},
-    -- servers.pyright = {},
     -- servers.rust_analyzer = {},
     -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
     --
@@ -113,12 +113,13 @@ return {
       },
     }
     servers.ts_ls = {};
-    servers.angularls = {};
-    servers.yamlls = {};
-    servers.prismals = {};
-    servers.tailwindcss = {};
-    servers.htmx = {};
-    servers.astro = {};
+    servers.pyright = {}
+    servers.angularls = {}
+    servers.yamlls = {}
+    servers.prismals = {}
+    servers.tailwindcss = {}
+    servers.htmx = {}
+    servers.astro = {}
 
     if require( 'nixCatsUtils' ).isNixCats then
       for server_name,_ in pairs( servers ) do
