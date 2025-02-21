@@ -36,3 +36,6 @@ keymap.set( 'n', '<C-l>', '<C-w>l', opts )
 -- move in tabs
 keymap.set( 'n', '<Tab>', ':tabnext<CR>', opts )
 keymap.set( 'n', '<S-Tab>', ':tabprevious<CR>', opts )
+
+keymap.set( 'n', '<leader>rn', vim.lsp.buf.rename, opts )
+keymap.set( 'n', '<leader>rl', "<cmd>LspRestart<CR>", opts )
