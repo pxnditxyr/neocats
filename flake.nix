@@ -16,11 +16,15 @@
       };
     };
 
+    "plugins-nvim-notify" = {
+      url = "github:rcarriga/nvim-notify";
+      flake = false;
+    };
+
     # "plugins-snacks.nvim" = {
     #   url = "github:folke/snacks.nvim";
     #   flake = false;
     # };
-
   };
 
   outputs = { self, nixpkgs, nixCats, ... }@inputs: let
@@ -110,6 +114,8 @@
         ui = with pkgs.vimPlugins; [
           lualine-nvim
           tokyonight-nvim
+          mini-icons
+          pkgs.neovimPlugins.nvim-notify
         ];
 
         ai = with pkgs.vimPlugins; [

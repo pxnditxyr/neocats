@@ -3,7 +3,10 @@ require( 'nixCatsUtils' ).setup({
 })
 
 require( 'pxndxs.options' )
+require( 'pxndxs.diagnostics' )
+require( 'pxndxs.borders' )
 require( 'pxndxs.keymaps' )
+
 
 local function getlockfilepath()
   if require( 'nixCatsUtils' ).isNixCats and type( nixCats.settings.unwrappedCfgPath ) == "string" then
@@ -15,23 +18,6 @@ end
 
 local lazyOptions = {
   lockfile = getlockfilepath(),
-  ui = {
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
-  },
 }
 
 require( 'nixCatsUtils.lazyCat' ).setup( nixCats.pawsible({ "allPlugins", "start", "lazy.nvim" }),
