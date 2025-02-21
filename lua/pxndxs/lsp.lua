@@ -41,7 +41,6 @@ return {
 
         map( 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration' )
         map( "gd", require("snacks").picker.lsp_definitions, "[G]oto [D]efinition" )
-        map( "rl", '<cmd>LspRestart<CR>', "Restart LSP" )
 
         local client = vim.lsp.get_client_by_id( event.data.client_id )
         if client and client.server_capabilities.documentHighlightProvider then
