@@ -4,7 +4,8 @@ return {
   ---@type oil.SetupOpts
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
   enabled = require( 'nixCatsUtils' ).enableForCategory( 'file-manager' ),
-  cmd = { "Oil" },
+  -- cmd = { "Oil" },
+  lazy = false,
   opts = {
     default_file_explorer = true,
     view_options = {

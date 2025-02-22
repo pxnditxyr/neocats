@@ -96,6 +96,7 @@
           nvim-treesitter.withAllGrammars
           rainbow-delimiters-nvim
           nvim-ts-autotag
+          nvim-treesitter-context
         ];
 
         file-manager = with pkgs.vimPlugins; [

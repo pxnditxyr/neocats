@@ -39,3 +39,7 @@ keymap.set( 'n', '<S-Tab>', ':tabprevious<CR>', opts )
 
 keymap.set( 'n', '<leader>rn', vim.lsp.buf.rename, opts )
 keymap.set( 'n', '<leader>rl', "<cmd>LspRestart<CR>", opts )
+
+-- indent
+vim.keymap.set("v", "<", "<gv", { desc = "Indent out and keeps the selection" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent in and keeps the selection" })

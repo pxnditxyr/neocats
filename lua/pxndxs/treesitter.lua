@@ -19,6 +19,13 @@ return {
     end,
   },
   {
+    'nvim-treesitter/nvim-treesitter-context',
+    event = 'BufReadPost',
+    opts = {
+      enable = true,
+    }
+  },
+  {
     'windwp/nvim-ts-autotag',
     event = 'BufReadPost',
     opts = {

@@ -6,7 +6,7 @@ require( 'pxndxs.options' )
 require( 'pxndxs.diagnostics' )
 require( 'pxndxs.borders' )
 require( 'pxndxs.keymaps' )
-
+require( 'pxndxs.autocommands' )
 
 local function getlockfilepath()
   if require( 'nixCatsUtils' ).isNixCats and type( nixCats.settings.unwrappedCfgPath ) == "string" then
