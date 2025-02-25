@@ -121,6 +121,15 @@
 
         ai = with pkgs.vimPlugins; [
           supermaven-nvim
+
+          avante-nvim
+          copilot-lua
+          nvim-treesitter
+          dressing-nvim
+          plenary-nvim
+          nui-nvim
+          img-clip-nvim
+          render-markdown-nvim
         ];
 
         git = with pkgs.vimPlugins; [

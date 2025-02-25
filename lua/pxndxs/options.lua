@@ -47,3 +47,6 @@ vim.o.splitright = true
 
 vim.o.errorbells = false
 vim.o.showmode = false
+
+
+vim.o.laststatus = 3
