@@ -136,6 +136,10 @@
           vim-dadbod
           vim-dadbod-completion
         ];
+
+        http = with pkgs.vimPlugins; [
+          kulala-nvim
+        ];
       };
 
       optionalPlugins = {
@@ -193,6 +197,7 @@
           ai = true;
 
           db-client = true;
+          http = true;
 
           # gitPlugins = true;
           customPlugins = true;
