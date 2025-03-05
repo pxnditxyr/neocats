@@ -8,7 +8,7 @@ return {
   },
   cmd = { "Neogit" },
   keys = {
-    { "<leader>gg", "<cmd>Neogit<cr>", desc = "Open Neogit" },
+    { "<leader>gg", "<cmd>Neogit kind=split_above<cr>", desc = "Open Neogit" },
   },
   enabled = require( 'nixCatsUtils' ).enableForCategory( 'git' ),
   opts = {}
