@@ -97,6 +97,8 @@
           rainbow-delimiters-nvim
           nvim-ts-autotag
           nvim-treesitter-context
+          todo-comments-nvim
+          ts-comments-nvim
         ];
 
         file-manager = with pkgs.vimPlugins; [
