@@ -42,3 +42,7 @@ keymap.set( 'n', '<leader>rl', "<cmd>LspRestart<CR>", opts )
 -- indent
 vim.keymap.set("v", "<", "<gv", { desc = "Indent out and keeps the selection" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent in and keeps the selection" })
+
+-- run file
+vim.keymap.set('n', '<leader>bun', ':!bun %<CR>', opts)
+-- vim.keymap.set('n', '<leader>py', ':!python3 %<CR>', opts)
