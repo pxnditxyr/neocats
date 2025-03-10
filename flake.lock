@@ -302,6 +302,22 @@
         "type": "github"
       }
     },
+    "plugins-multicursor-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1741269070,
+        "narHash": "sha256-5otx0ATg56t9pnACgWyEZ+L72zzJ25BEQRdTCR2s4NE=",
+        "owner": "jake-stewart",
+        "repo": "multicursor.nvim",
+        "rev": "58b3ec99a3d25a99afd9531d475d05c776276faa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jake-stewart",
+        "repo": "multicursor.nvim",
+        "type": "github"
+      }
+    },
     "plugins-nvim-notify": {
       "flake": false,
       "locked": {
@@ -324,6 +340,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_2",
+        "plugins-multicursor-nvim": "plugins-multicursor-nvim",
         "plugins-nvim-notify": "plugins-nvim-notify"
       }
     },

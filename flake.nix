@@ -21,6 +21,11 @@
       flake = false;
     };
 
+    "plugins-multicursor-nvim" = {
+      url = "github:jake-stewart/multicursor.nvim";
+      flake = false;
+    };
+
     # "plugins-snacks.nvim" = {
     #   url = "github:folke/snacks.nvim";
     #   flake = false;
@@ -84,6 +89,7 @@
           snacks-nvim
           ultimate-autopair-nvim
           nvim-highlight-colors
+          (pkgs.neovimPlugins.multicursor-nvim.overrideAttrs {pname = "multicursor.nvim";})
         ];
 
         lsp = with pkgs.vimPlugins; [
