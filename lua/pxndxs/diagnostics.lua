@@ -1,8 +1,18 @@
-local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
+local signs = {
+  Error = " ",
+  Warn = " ",
+  Hint = "󰌵 ",
+  Info = " "
+}
 
-vim.keymap.set({"n"}, "]d", vim.diagnostic.goto_next, {})
-vim.keymap.set({"n"}, "[d", vim.diagnostic.goto_prev, {})
+vim.diagnostic.config({
+  signs = {
+    error = { text = signs.Error, texthl = "DiagnosticSignError" },
+    warn = { text = signs.Warn, texthl = "DiagnosticSignWarn" },
+    hint = { text = signs.Hint, texthl = "DiagnosticSignHint" },
+    info = { text = signs.Info, texthl = "DiagnosticSignInfo" },
+  }
+})
+
+vim.keymap.set( 'n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end )
+vim.keymap.set( 'n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end )
