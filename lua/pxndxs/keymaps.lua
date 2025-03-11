@@ -16,7 +16,7 @@ keymap.set( 'n', '<leader>y', ':%y<CR>', opts )
 keymap.set( 'n', '<leader>x', ':%d<CR>', opts )
 keymap.set( 'x', '<leader>p', '"_dP', opts )
 
-keymap.set( 'n', '<leader>par', 'a<Space><Esc>h%i<Space><Esc>l%', opts )
+keymap.set( 'n', '<leader>ll', 'a<Space><Esc>h%i<Space><Esc>l%', opts )
 
 
 -- save and quit
