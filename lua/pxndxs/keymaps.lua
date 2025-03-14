@@ -40,14 +40,16 @@ keymap.set( 'n', '<S-Tab>', ':tabprevious<CR>', opts )
 keymap.set( 'n', '<leader>rl', "<cmd>LspRestart<CR>", opts )
 
 -- indent
-keymap.set("v", "<", "<gv", { desc = "Indent out and keeps the selection" })
-keymap.set("v", ">", ">gv", { desc = "Indent in and keeps the selection" })
+keymap.set( "v", "<", "<gv", { desc = "Indent out and keeps the selection" } )
+keymap.set( "v", ">", ">gv", { desc = "Indent in and keeps the selection" } )
 
 -- run file
-keymap.set('n', '<leader>bun', ':!bun %<CR>', opts)
+keymap.set( 'n', '<leader>bun', ':!bun %<CR>', opts )
 -- keymap.set('n', '<leader>py', ':!python3 %<CR>', opts)
 
-keymap.set('n', '<C-Up>', ':resize +5<CR>', opts)
-keymap.set('n', '<C-Down>', ':resize -5<CR>', opts)
-keymap.set('n', '<C-Left>', ':vertical resize -5<CR>', opts)
-keymap.set('n', '<C-Right>', ':vertical resize +5<CR>', opts)
+keymap.set( 'n', '<C-Up>', ':resize +5<CR>', opts )
+keymap.set( 'n', '<C-Down>', ':resize -5<CR>', opts )
+keymap.set( 'n', '<C-Left>', ':vertical resize -5<CR>', opts )
+keymap.set( 'n', '<C-Right>', ':vertical resize +5<CR>', opts )
+
+keymap.set( 'v', '<leader>jq', ":'<,'>!jq .<CR>", { desc = "Formatear JSON seleccionado con jq" } )
