@@ -118,6 +118,7 @@ return {
     servers.prismals = {}
     servers.tailwindcss = {}
     servers.astro = {}
+    servers.svelte = {}
 
     if require( 'nixCatsUtils' ).isNixCats then
       for server_name,_ in pairs( servers ) do
@@ -150,4 +151,3 @@ return {
     end
   end,
 }
-
