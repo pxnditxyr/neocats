@@ -76,16 +76,7 @@ return {
       },
 
       cmdline = {
-        enabled = function()
-          local function not_shellcmd()
-            if vim.fn.getcmdtype() ~= ":" then
-              return true
-            else
-              return not vim.fn.getcmdline():match "^[%%0-9,'<>%-]*!"
-            end
-          end
-          return not_shellcmd()
-        end,
+        enabled = false
       },
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji' },
