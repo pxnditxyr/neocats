@@ -119,6 +119,7 @@ return {
     servers.tailwindcss = {}
     servers.astro = {}
     servers.svelte = {}
+    servers.dartls = {}
 
     if require( 'nixCatsUtils' ).isNixCats then
       for server_name,_ in pairs( servers ) do

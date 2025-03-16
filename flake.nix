@@ -70,6 +70,7 @@
           tailwindcss-language-server
           astro-language-server
           svelte-language-server
+          dart
 
           typescript
           fzf
