@@ -120,6 +120,7 @@ return {
     servers.astro = {}
     servers.svelte = {}
     servers.dartls = {}
+    servers.jsonls = {}
 
     if require( 'nixCatsUtils' ).isNixCats then
       for server_name,_ in pairs( servers ) do

@@ -71,6 +71,7 @@
           astro-language-server
           svelte-language-server
           dart
+          vscode-langservers-extracted
 
           typescript
           fzf
