@@ -30,6 +30,8 @@ return {
           "sqlite",
           "mongo",
           ".direnv",
+          "postgres-db",
+          "dist"
         }
         local root_path = vim.fn.getcwd()
         local files_path = vim.fn.expand( "%" )
