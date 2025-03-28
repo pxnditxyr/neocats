@@ -302,38 +302,6 @@
         "type": "github"
       }
     },
-    "plugins-avante.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1743128689,
-        "narHash": "sha256-+d2modxYkzQV3Re5q4c1g4nKKjVkffbM0nYqAkLewmA=",
-        "owner": "yetone",
-        "repo": "avante.nvim",
-        "rev": "78d6c389b4f94b2040c87c82558ea6cd9328ef95",
-        "type": "github"
-      },
-      "original": {
-        "owner": "yetone",
-        "repo": "avante.nvim",
-        "type": "github"
-      }
-    },
-    "plugins-copilot.lua": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1743114977,
-        "narHash": "sha256-BYaHVjx0kUZQWfCsGPjYeCvlkAZGCX60vP3VBmavvBU=",
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
-        "rev": "20723713aa5fbfd535fcf0cd28753a899ca3d526",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
-        "type": "github"
-      }
-    },
     "plugins-gitsigns.nvim": {
       "flake": false,
       "locked": {
@@ -436,8 +404,6 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs_2",
-        "plugins-avante.nvim": "plugins-avante.nvim",
-        "plugins-copilot.lua": "plugins-copilot.lua",
         "plugins-gitsigns.nvim": "plugins-gitsigns.nvim",
         "plugins-luasnip": "plugins-luasnip",
         "plugins-multicursor-nvim": "plugins-multicursor-nvim",

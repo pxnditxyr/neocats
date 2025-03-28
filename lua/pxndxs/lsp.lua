@@ -122,6 +122,7 @@ return {
     servers.svelte = {}
     servers.dartls = {}
     servers.jsonls = {}
+    servers.cssls = {}
 
     servers.denols = {
       root_dir = util.root_pattern( 'deno.json', 'deno.jsonc' ),

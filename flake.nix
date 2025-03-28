@@ -26,10 +26,10 @@
       flake = false;
     };
 
-    "plugins-copilot.lua" = {
-      url = "github:zbirenbaum/copilot.lua";
-      flake = false;
-    };
+    # "plugins-copilot.lua" = {
+    #   url = "github:zbirenbaum/copilot.lua";
+    #   flake = false;
+    # };
 
     "plugins-snacks.nvim" = {
       url = "github:folke/snacks.nvim";
@@ -41,10 +41,10 @@
       flake = false;
     };
 
-    "plugins-avante.nvim" = {
-      url = "github:yetone/avante.nvim";
-      flake = false;
-    };
+    # "plugins-avante.nvim" = {
+    #   url = "github:yetone/avante.nvim";
+    #   flake = false;
+    # };
 
     "plugins-gitsigns.nvim" = {
       url = "github:lewis6991/gitsigns.nvim";
@@ -159,8 +159,10 @@
         ai = with pkgs.vimPlugins; [
           supermaven-nvim
 
-          pkgs.neovimPlugins.avante-nvim
-          pkgs.neovimPlugins.copilot-lua
+          # pkgs.neovimPlugins.avante-nvim
+          avante-nvim
+          # pkgs.neovimPlugins.copilot-lua
+          copilot-lua
           nvim-treesitter
           dressing-nvim
           plenary-nvim
