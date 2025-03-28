@@ -135,6 +135,7 @@ return {
           filetypes = ( servers[ server_name ] or {} ).filetypes,
           cmd = ( servers[ server_name ] or {} ).cmd,
           root_pattern = ( servers[ server_name ] or {} ).root_pattern,
+          root_dir = ( servers[ server_name ] or {} ).root_dir,
         })
       end
     else
