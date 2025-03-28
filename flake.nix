@@ -26,10 +26,35 @@
       flake = false;
     };
 
-    # "plugins-snacks.nvim" = {
-    #   url = "github:folke/snacks.nvim";
-    #   flake = false;
-    # };
+    "plugins-copilot.lua" = {
+      url = "github:zbirenbaum/copilot.lua";
+      flake = false;
+    };
+
+    "plugins-snacks.nvim" = {
+      url = "github:folke/snacks.nvim";
+      flake = false;
+    };
+
+    "plugins-luasnip" = {
+      url = "github:L3MON4D3/LuaSnip";
+      flake = false;
+    };
+
+    "plugins-avante.nvim" = {
+      url = "github:yetone/avante.nvim";
+      flake = false;
+    };
+
+    "plugins-gitsigns.nvim" = {
+      url = "github:lewis6991/gitsigns.nvim";
+      flake = false;
+    };
+
+    "plugins-oil.nvim" = {
+      url = "github:stevearc/oil.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, nixCats, ... }@inputs: let
@@ -46,7 +71,8 @@
       # `plugins-<pluginName>`
       # Once we add this overlay to our nixpkgs, we are able to
       # use `pkgs.neovimPlugins`, which is a set of our plugins.
-      (utils.standardPluginOverlay inputs)
+      # (utils.standardPluginOverlay inputs)
+      (utils.sanitizedPluginOverlay inputs)
       # add any other flake overlays here.
 
       # when other people mess up their overlays by wrapping them with system,
@@ -72,6 +98,7 @@
           svelte-language-server
           dart
           vscode-langservers-extracted
+          deno
 
           typescript
           fzf
@@ -86,8 +113,7 @@
         # gitPlugins = with pkgs.neovimPlugins; [ ];
         general = with pkgs.vimPlugins; [
           vim-surround
-          # pkgs.neovimPlugins.snacks-nvim
-          snacks-nvim
+          pkgs.neovimPlugins.snacks-nvim
           ultimate-autopair-nvim
           nvim-highlight-colors
           (pkgs.neovimPlugins.multicursor-nvim.overrideAttrs {pname = "multicursor.nvim";})
@@ -109,7 +135,8 @@
         ];
 
         file-manager = with pkgs.vimPlugins; [
-          oil-nvim
+          # oil-nvim
+          pkgs.neovimPlugins.oil-nvim
           mini-icons
         ];
 
@@ -117,7 +144,8 @@
           (inputs.blink.packages.${ pkgs.system }.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
           blink-compat
           blink-emoji-nvim
-          luasnip
+          # luasnip
+          pkgs.neovimPlugins.luasnip
           friendly-snippets
         ];
 
@@ -131,8 +159,8 @@
         ai = with pkgs.vimPlugins; [
           supermaven-nvim
 
-          avante-nvim
-          copilot-lua
+          pkgs.neovimPlugins.avante-nvim
+          pkgs.neovimPlugins.copilot-lua
           nvim-treesitter
           dressing-nvim
           plenary-nvim
@@ -145,7 +173,8 @@
           neogit
           plenary-nvim
           diffview-nvim
-          gitsigns-nvim
+          # gitsigns-nvim
+          pkgs.neovimPlugins.gitsigns-nvim
           fzf-lua
         ];
 

@@ -26,6 +26,7 @@ return {
     },
   },
   config = function()
+    local util = require( 'lspconfig.util' )
     vim.api.nvim_create_autocmd( 'LspAttach', {
       group = vim.api.nvim_create_augroup( 'kickstart-lsp-attach', { clear = true } ),
       callback = function( event )
@@ -121,6 +122,10 @@ return {
     servers.svelte = {}
     servers.dartls = {}
     servers.jsonls = {}
+
+    servers.denols = {
+      root_dir = util.root_pattern( 'deno.json', 'deno.jsonc' ),
+    }
 
     if require( 'nixCatsUtils' ).isNixCats then
       for server_name,_ in pairs( servers ) do
