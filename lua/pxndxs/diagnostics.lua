@@ -1,17 +1,18 @@
-local signs = {
-  Error = " ",
-  Warn = " ",
-  Hint = "󰌵 ",
-  Info = " "
-}
-
 vim.diagnostic.config({
   signs = {
-    error = { text = signs.Error, texthl = "DiagnosticSignError" },
-    warn = { text = signs.Warn, texthl = "DiagnosticSignWarn" },
-    hint = { text = signs.Hint, texthl = "DiagnosticSignHint" },
-    info = { text = signs.Info, texthl = "DiagnosticSignInfo" },
-  }
+    text = {
+      [ vim.diagnostic.severity.ERROR ] = " ",
+      [ vim.diagnostic.severity.WARN ] = " ",
+      [ vim.diagnostic.severity.HINT ] = "󰌵 ",
+      [ vim.diagnostic.severity.INFO ] = " ",
+    },
+    linehl = {
+      [ vim.diagnostic.severity.ERROR ] = "ErrorMsg",
+    },
+    numhl = {
+      [ vim.diagnostic.severity.WARN ] = "WarningMsg",
+    },
+  },
 })
 
 vim.keymap.set( 'n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end )
