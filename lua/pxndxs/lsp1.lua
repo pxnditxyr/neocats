@@ -112,7 +112,7 @@ return {
         },
       },
     }
-    servers.ts_ls = {}
+    -- servers.ts_ls = {}
     servers.pyright = {}
     servers.angularls = {}
     servers.yamlls = {}

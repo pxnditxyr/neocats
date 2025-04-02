@@ -7,6 +7,7 @@ require( 'pxndxs.diagnostics' )
 require( 'pxndxs.borders' )
 require( 'pxndxs.keymaps' )
 require( 'pxndxs.autocommands' )
+require( 'pxndxs.lsp' )
 
 local function getlockfilepath()
   if require( 'nixCatsUtils' ).isNixCats and type( nixCats.settings.unwrappedCfgPath ) == "string" then
@@ -22,7 +23,7 @@ local lazyOptions = {
 
 require( 'nixCatsUtils.lazyCat' ).setup( nixCats.pawsible({ "allPlugins", "start", "lazy.nvim" }),
   {
-    require( "pxndxs.lsp" ),
+    require( "pxndxs.lsp1" ),
     require( "pxndxs.treesitter" ),
     require( "pxndxs.file-manager" ),
     require( "pxndxs.completion" ),
