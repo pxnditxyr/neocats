@@ -120,7 +120,6 @@
         ];
 
         lsp = with pkgs.vimPlugins; [
-          nvim-lspconfig
           fidget-nvim
           lazydev-nvim
         ];
