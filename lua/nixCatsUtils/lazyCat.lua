@@ -23,7 +23,7 @@ function M.setup(nixLazyPath, lazySpec, opts)
 
   local function regularLazyDownload()
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-    if not vim.loop.fs_stat(lazypath) then
+    if not vim.fs.exists( lazypath ) then
       vim.fn.system {
         'git',
         'clone',

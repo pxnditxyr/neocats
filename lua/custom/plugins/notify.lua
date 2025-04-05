@@ -6,6 +6,11 @@ return {
     require( 'notify' ).setup({})
   end,
   keys = {
-    { '<leader>nd', function() require( 'notify' ).dismiss() end, desc = 'Dismiss notification' },
+    {
+      '<leader>nd', function()
+        require( 'notify' ).dismiss({})
+      end,
+      desc = 'Dismiss notification'
+    },
   }
 }

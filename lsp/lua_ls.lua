@@ -1,4 +1,3 @@
-
 return {
   cmd = { "lua-language-server" },
   root_markers = {
@@ -12,15 +11,18 @@ return {
     ".git",
   },
   filetypes = { "lua" },
+  log_level = vim.lsp.protocol.MessageType.Warning,
   settings = {
     Lua = {
-      completion = {
-        callSnippet = "Replace",
+      formatters = {
+        ignoreComments = true,
       },
+      signatureHelp = { enabled = true },
       diagnostics = {
-        globals = { "nixCats" },
-        disable = { "missing-fields" },
+        globals = { 'nixCats' },
+        disable = { 'missing-fields' },
       },
     },
-  }
+    telemetry = { enabled = false },
+  },
 }

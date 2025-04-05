@@ -12,102 +12,6 @@ return {
       desc = "Toggle a terminal",
       mode = { "n", "t" },
     },
-
-    -- {
-    --   "<leader>z",
-    --   function()
-    --     require( "snacks" ).zen()
-    --   end,
-    --   desc = "Toggle Zen Mode",
-    -- },
-    -- {
-    --   "<leader>Z",
-    --   function()
-    --     require( "snacks" ).zen.zoom()
-    --   end,
-    --   desc = "Toggle Zoom",
-    -- },
-    --
-    -- {
-    --   "<leader>.",
-    --   function()
-    --     require( "snacks" ).scratch()
-    --   end,
-    --   desc = "Toggle Scratch Buffer",
-    -- },
-    -- {
-    --   "<leader>S",
-    --   function()
-    --     require( "snacks" ).scratch.select()
-    --   end,
-    --   desc = "Select Scratch Buffer",
-    -- },
-    --
-    -- {
-    --   "<leader>n",
-    --   function()
-    --     require( "snacks" ).notifier.show_history()
-    --   end,
-    --   desc = "Notification History",
-    -- },
-    -- {
-    --   "<leader>bd",
-    --   function()
-    --     require( "snacks" ).bufdelete()
-    --   end,
-    --   desc = "Delete Buffer",
-    -- },
-    -- {
-    --   "<leader>cR",
-    --   function()
-    --     require( "snacks" ).rename.rename_file()
-    --   end,
-    --   desc = "Rename File",
-    -- },
-    --
-    -- {
-    --   "<leader>gB",
-    --   function()
-    --     require( "snacks" ).gitbrowse()
-    --   end,
-    --   desc = "Git Browse",
-    --   mode = { "n", "v" },
-    -- },
-    -- {
-    --   "<leader>gb",
-    --   function()
-    --     require( "snacks" ).git.blame_line()
-    --   end,
-    --   desc = "Git Blame Line",
-    -- },
-    -- {
-    --   "<leader>gf",
-    --   function()
-    --     require( "snacks" ).lazygit.log_file()
-    --   end,
-    --   desc = "Lazygit Current File History",
-    -- },
-    -- {
-    --   "<leader>gg",
-    --   function()
-    --     require( "snacks" ).lazygit()
-    --   end,
-    --   desc = "Lazygit",
-    -- },
-    -- {
-    --   "<leader>gl",
-    --   function()
-    --     require( "snacks" ).lazygit.log()
-    --   end,
-    --   desc = "Lazygit Log (cwd)",
-    -- },
-    -- {
-    --   "<leader>un",
-    --   function()
-    --     require( "snacks" ).notifier.hide()
-    --   end,
-    --   desc = "Dismiss All Notifications",
-    -- },
     {
       "<leader>ff",
       function()
@@ -115,13 +19,13 @@ return {
       end,
       desc = "Smart Picker",
     },
-    -- {
-    --   "<leader>pe",
-    --   function()
-    --     require( "snacks" ).picker.buffers()
-    --   end,
-    --   desc = "Buffers Picker",
-    -- },
+    {
+      "<leader>fb",
+      function()
+        require( "snacks" ).picker.buffers()
+      end,
+      desc = "Buffers Picker",
+    },
     {
       "<leader>fg",
       function()
@@ -129,13 +33,13 @@ return {
       end,
       desc = "Grep Picker",
     },
-    -- {
-    --   "<leader>ph",
-    --   function()
-    --     require( "snacks" ).picker.help()
-    --   end,
-    --   desc = "Help Picker",
-    -- },
+    {
+      "<leader>fh",
+      function()
+        require( "snacks" ).picker.help()
+      end,
+      desc = "Help Picker",
+    },
     {
       "<leader>fs",
       function()
@@ -143,13 +47,6 @@ return {
       end,
       desc = "Git Status Picker",
     },
-    -- {
-    --   "<leader>:",
-    --   function()
-    --     require( "snacks" ).picker.command_history()
-    --   end,
-    --   desc = "Command history picker",
-    -- },
   };
   opts = {
     bigfile = { enabled = true },

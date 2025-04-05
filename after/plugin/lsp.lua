@@ -63,8 +63,8 @@ vim.lsp.config(
 vim.lsp.enable( "lua_ls" )
 vim.lsp.enable( "pyright" )
 vim.lsp.enable( "yamlls" )
-vim.lsp.enable( "dartls" )
 vim.lsp.enable( "jsonls" )
+vim.lsp.enable( "dartls" )
 vim.lsp.enable( "nixd", require( "nixCatsUtils" ).isNixCats )
 
 -- JS/TS based LSP
@@ -74,7 +74,7 @@ vim.lsp.enable( "denols" )
 vim.lsp.enable( "svelte" )
 vim.lsp.enable( "angularls" )
 vim.lsp.enable( "prismals" )
-
+--
 -- CSS based LSP
 vim.lsp.enable( "tailwindcss" )
 vim.lsp.enable( "cssls" )
