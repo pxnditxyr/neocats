@@ -9,6 +9,10 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
+    prisma-language-tools = {
+      url = "github:prisma/language-tools";
+    };
+
     blink = {
       url = "github:Saghen/blink.cmp";
       inputs = {
