@@ -586,6 +586,22 @@
         "type": "github"
       }
     },
+    "plugins-npm-info.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744564150,
+        "narHash": "sha256-j4HK5vL31cQtqoEw7Ml+p2dQyz1CkcTMecp3JvEh118=",
+        "owner": "pxnditxyr",
+        "repo": "npm-info.nvim",
+        "rev": "2ff293f2388e983f6f0f46466d0b76c676cddc05",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pxnditxyr",
+        "repo": "npm-info.nvim",
+        "type": "github"
+      }
+    },
     "plugins-nvim-notify": {
       "flake": false,
       "locked": {
@@ -707,6 +723,7 @@
         "plugins-gitsigns.nvim": "plugins-gitsigns.nvim",
         "plugins-luasnip": "plugins-luasnip",
         "plugins-multicursor-nvim": "plugins-multicursor-nvim",
+        "plugins-npm-info.nvim": "plugins-npm-info.nvim",
         "plugins-nvim-notify": "plugins-nvim-notify",
         "plugins-oil.nvim": "plugins-oil.nvim",
         "plugins-snacks.nvim": "plugins-snacks.nvim",

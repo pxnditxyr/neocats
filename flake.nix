@@ -20,6 +20,11 @@
       };
     };
 
+    "plugins-npm-info.nvim" = {
+      url = "github:pxnditxyr/npm-info.nvim";
+      flake = false;
+    };
+
     "plugins-nvim-notify" = {
       url = "github:rcarriga/nvim-notify";
       flake = false;
@@ -103,6 +108,7 @@
           dart
           vscode-langservers-extracted
           deno
+          # (inputs.prisma-language-tools.packages.${pkgs.system}.prisma-language-server)
 
           typescript
           fzf
@@ -192,6 +198,10 @@
         http = with pkgs.vimPlugins; [
           kulala-nvim
         ];
+
+        javascript = with pkgs.vimPlugins; [
+          pkgs.neovimPlugins.npm-info-nvim
+        ];
       };
 
       optionalPlugins = {
@@ -250,6 +260,8 @@
 
           db-client = true;
           http = true;
+
+          javascript = true;
 
           # gitPlugins = true;
           customPlugins = true;
