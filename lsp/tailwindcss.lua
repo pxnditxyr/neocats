@@ -92,6 +92,7 @@ return {
     "postcss.config.cjs",
     "postcss.config.mjs",
     "postcss.config.ts",
-    "vite.config.js"
+    "vite.config.js",
+    ".git"
   },
 }
