@@ -78,3 +78,4 @@ vim.lsp.enable( "prismals" )
 -- CSS based LSP
 vim.lsp.enable( "tailwindcss" )
 vim.lsp.enable( "cssls" )
+vim.lsp.enable( "phpactor" )

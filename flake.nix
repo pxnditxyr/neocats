@@ -108,6 +108,7 @@
           dart
           vscode-langservers-extracted
           deno
+          phpactor
           # (inputs.prisma-language-tools.packages.${pkgs.system}.prisma-language-server)
 
           typescript
