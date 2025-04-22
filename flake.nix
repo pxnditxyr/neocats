@@ -117,6 +117,7 @@
 
           # psql
           postgresql
+          mysql-client
         ];
       };
 
