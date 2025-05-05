@@ -24,7 +24,7 @@ return {
       cmd = "Copilot",
       opts = {
         suggestion = { enabled = false },
-        copilot_node_command = vim.fn.expand( "$HOME" ) .. "/.local/share/fnm/node-versions/v23.8.0/installation/bin/node",
+        copilot_node_command = vim.fn.expand( "$HOME" ) .. "/.local/share/fnm/aliases/default/bin/node",
         panel = { enabled = false },
       },
       config = function( _, opts )
