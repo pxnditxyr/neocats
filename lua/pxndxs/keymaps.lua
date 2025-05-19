@@ -34,6 +34,7 @@ keymap.set( 'n', '<C-k>', '<C-w>k', opts )
 keymap.set( 'n', '<C-l>', '<C-w>l', opts )
 
 -- move in tabs
+keymap.set( 'n', '<leader>tn', ':tabnew<CR>', opts )
 keymap.set( 'n', '<Tab>', ':tabnext<CR>', opts )
 keymap.set( 'n', '<S-Tab>', ':tabprevious<CR>', opts )
 
