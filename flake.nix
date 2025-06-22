@@ -119,6 +119,14 @@
           postgresql
           mysql-client
         ];
+
+        rust = with pkgs; [
+          rustc
+          rustfmt
+          cargo
+          clippy
+          rust-analyzer
+        ];
       };
 
       startupPlugins = {
@@ -264,6 +272,7 @@
           http = true;
 
           javascript = true;
+          rust = true;
 
           # gitPlugins = true;
           customPlugins = true;
