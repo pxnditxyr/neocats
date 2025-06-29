@@ -6,9 +6,9 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
+    # neovim-nightly-overlay = {
+    #   url = "github:nix-community/neovim-nightly-overlay";
+    # };
 
     prisma-language-tools = {
       url = "github:prisma/language-tools";
@@ -45,11 +45,6 @@
       url = "github:L3MON4D3/LuaSnip";
       flake = false;
     };
-
-    # "plugins-avante.nvim" = {
-    #   url = "github:yetone/avante.nvim";
-    #   flake = false;
-    # };
 
     "plugins-gitsigns.nvim" = {
       url = "github:lewis6991/gitsigns.nvim";
@@ -212,7 +207,6 @@
             neogit
             plenary-nvim
             diffview-nvim
-            # gitsigns-nvim
             pkgs.neovimPlugins.gitsigns-nvim
             fzf-lua
           ];
@@ -272,7 +266,7 @@
         settings = {
           wrapRc = true;
           aliases = [ "vim" ];
-          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+          # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
         };
         categories = {
           general = true;
