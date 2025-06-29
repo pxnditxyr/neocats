@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     neovim-nightly-overlay = {
@@ -35,11 +36,6 @@
       flake = false;
     };
 
-    # "plugins-copilot.lua" = {
-    #   url = "github:zbirenbaum/copilot.lua";
-    #   flake = false;
-    # };
-
     "plugins-snacks.nvim" = {
       url = "github:folke/snacks.nvim";
       flake = false;
@@ -64,9 +60,22 @@
       url = "github:stevearc/oil.nvim";
       flake = false;
     };
+
+    mcp-hub-nvim = {
+      url = "github:/ravitemer/mcphub.nvim";
+    };
+
+    mcp-hub = {
+      url = "github:/ravitemer/mcp-hub";
+    };
   };
 
-  outputs = { self, nixpkgs, nixCats, ... }@inputs: let
+  outputs = {
+    self,
+    nixpkgs,
+    nixCats,
+    ...
+  }@inputs: let
     inherit (nixCats) utils;
     luaPath = "${./.}";
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
@@ -92,159 +101,168 @@
       # )
     ];
 
-    categoryDefinitions = { pkgs, settings, categories, extra, name, mkNvimPlugin, ... }@packageDef: {
-      lspsAndRuntimeDeps = {
+    categoryDefinitions = {
+        pkgs,
+        settings,
+        categories,
+        extra,
+        name,
+        mkNvimPlugin,
+        ...
+      }@packageDef:
+      {
+        lspsAndRuntimeDeps = {
 
-        general = with pkgs; [
-          lua-language-server
-          typescript-language-server
-          angular-language-server
-          pyright
-          nixd
-          yaml-language-server
-          tailwindcss-language-server
-          astro-language-server
-          svelte-language-server
-          dart
-          vscode-langservers-extracted
-          deno
-          phpactor
-          # (inputs.prisma-language-tools.packages.${pkgs.system}.prisma-language-server)
+          general = with pkgs; [
+            lua-language-server
+            typescript-language-server
+            angular-language-server
+            pyright
+            nixd
+            yaml-language-server
+            tailwindcss-language-server
+            astro-language-server
+            svelte-language-server
+            dart
+            vscode-langservers-extracted
+            deno
+            phpactor
+            # (inputs.prisma-language-tools.packages.${pkgs.system}.prisma-language-server)
 
-          typescript
-          fzf
-          ripgrep
+            typescript
+            fzf
+            ripgrep
 
-          # psql
-          postgresql
-          mysql-client
-        ];
+            # psql
+            postgresql
+            mysql-client
+          ];
 
-        rust = with pkgs; [
-          rustc
-          rustfmt
-          cargo
-          clippy
-          rust-analyzer
-        ];
-      };
+          rust = with pkgs; [
+            rustc
+            rustfmt
+            cargo
+            clippy
+            rust-analyzer
+          ];
 
-      startupPlugins = {
-        # gitPlugins = with pkgs.neovimPlugins; [ ];
-        general = with pkgs.vimPlugins; [
-          vim-surround
-          pkgs.neovimPlugins.snacks-nvim
-          ultimate-autopair-nvim
-          nvim-highlight-colors
-          (pkgs.neovimPlugins.multicursor-nvim.overrideAttrs {pname = "multicursor.nvim";})
-        ];
+          ai = with pkgs; [
+            (inputs.mcp-hub.packages.${pkgs.system}.default)
+            nodejs
+            uv
+          ];
+        };
 
-        lsp = with pkgs.vimPlugins; [
-          fidget-nvim
-          lazydev-nvim
-        ];
+        startupPlugins = {
+          # gitPlugins = with pkgs.neovimPlugins; [ ];
+          general = with pkgs.vimPlugins; [
+            vim-surround
+            pkgs.neovimPlugins.snacks-nvim
+            ultimate-autopair-nvim
+            nvim-highlight-colors
+            (pkgs.neovimPlugins.multicursor-nvim.overrideAttrs {pname = "multicursor.nvim";})
+          ];
 
-        syntax = with pkgs.vimPlugins; [
-          nvim-treesitter.withAllGrammars
-          rainbow-delimiters-nvim
-          nvim-ts-autotag
-          nvim-treesitter-context
-          todo-comments-nvim
-          ts-comments-nvim
-        ];
+          lsp = with pkgs.vimPlugins; [
+            fidget-nvim
+            lazydev-nvim
+          ];
 
-        file-manager = with pkgs.vimPlugins; [
-          # oil-nvim
-          pkgs.neovimPlugins.oil-nvim
-          mini-icons
-        ];
+          syntax = with pkgs.vimPlugins; [
+            nvim-treesitter.withAllGrammars
+            rainbow-delimiters-nvim
+            nvim-ts-autotag
+            nvim-treesitter-context
+            todo-comments-nvim
+            ts-comments-nvim
+          ];
 
-        completion = with pkgs.vimPlugins; [
-          (inputs.blink.packages.${ pkgs.system }.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
-          blink-compat
-          blink-emoji-nvim
-          # luasnip
-          pkgs.neovimPlugins.luasnip
-          friendly-snippets
-        ];
+          file-manager = with pkgs.vimPlugins; [
+            # oil-nvim
+            pkgs.neovimPlugins.oil-nvim
+            mini-icons
+          ];
 
-        ui = with pkgs.vimPlugins; [
-          lualine-nvim
-          tokyonight-nvim
-          mini-icons
-          pkgs.neovimPlugins.nvim-notify
-        ];
+          completion = with pkgs.vimPlugins; [
+            (inputs.blink.packages.${ pkgs.system }.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
+            blink-compat
+            blink-emoji-nvim
+            # luasnip
+            pkgs.neovimPlugins.luasnip
+            friendly-snippets
+          ];
 
-        ai = with pkgs.vimPlugins; [
-          supermaven-nvim
+          ui = with pkgs.vimPlugins; [
+            lualine-nvim
+            tokyonight-nvim
+            mini-icons
+            pkgs.neovimPlugins.nvim-notify
+          ];
 
-          # pkgs.neovimPlugins.avante-nvim
-          avante-nvim
-          # pkgs.neovimPlugins.copilot-lua
-          copilot-lua
-          nvim-treesitter
-          dressing-nvim
-          plenary-nvim
-          nui-nvim
-          img-clip-nvim
-          render-markdown-nvim
-        ];
+          ai = with pkgs.vimPlugins; [
+            supermaven-nvim
+            avante-nvim
+            (inputs.mcp-hub-nvim.packages.${pkgs.system}.default.overrideAttrs { pname = "mcphub.nvim"; })
+            (inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.vimPlugins.copilot-lua)
+            plenary-nvim
+            nui-nvim
+          ];
 
-        git = with pkgs.vimPlugins; [
-          neogit
-          plenary-nvim
-          diffview-nvim
-          # gitsigns-nvim
-          pkgs.neovimPlugins.gitsigns-nvim
-          fzf-lua
-        ];
+          git = with pkgs.vimPlugins; [
+            neogit
+            plenary-nvim
+            diffview-nvim
+            # gitsigns-nvim
+            pkgs.neovimPlugins.gitsigns-nvim
+            fzf-lua
+          ];
 
-        db-client = with pkgs.vimPlugins; [
-          vim-dadbod-ui
-          vim-dadbod
-          vim-dadbod-completion
-        ];
+          db-client = with pkgs.vimPlugins; [
+            vim-dadbod-ui
+            vim-dadbod
+            vim-dadbod-completion
+          ];
 
-        http = with pkgs.vimPlugins; [
-          kulala-nvim
-        ];
+          http = with pkgs.vimPlugins; [
+            kulala-nvim
+          ];
 
-        javascript = with pkgs.vimPlugins; [
-          pkgs.neovimPlugins.npm-info-nvim
-        ];
-      };
+          javascript = with pkgs.vimPlugins; [
+            pkgs.neovimPlugins.npm-info-nvim
+          ];
+        };
 
-      optionalPlugins = {
-        # gitPlugins = with pkgs.neovimPlugins; [ ];
-        # general = with pkgs.vimPlugins; [ ];
-      };
+        optionalPlugins = {
+          # gitPlugins = with pkgs.neovimPlugins; [ ];
+          # general = with pkgs.vimPlugins; [ ];
+        };
 
-      sharedLibraries = {
-        # general = with pkgs; [
-        #   # libgit2
-        # ];
-      };
+        sharedLibraries = {
+          # general = with pkgs; [
+          #   # libgit2
+          # ];
+        };
 
-      environmentVariables = {
-        test = {
-          CATTESTVAR = "It worked!";
+        environmentVariables = {
+          test = {
+            CATTESTVAR = "It worked!";
+          };
+        };
+
+        extraWrapperArgs = {
+          test = [
+            '' --set CATTESTVAR2 "It worked again!"''
+          ];
+        };
+
+        extraPython3Packages = {
+          test = (_:[]);
+        };
+
+        extraLuaPackages = {
+          test = [ (_:[]) ];
         };
       };
-
-      extraWrapperArgs = {
-        test = [
-          '' --set CATTESTVAR2 "It worked again!"''
-        ];
-      };
-
-      extraPython3Packages = {
-        test = (_:[]);
-      };
-
-      extraLuaPackages = {
-        test = [ (_:[]) ];
-      };
-    };
 
 
 

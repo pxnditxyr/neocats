@@ -1,60 +1,36 @@
 return {
-  'yetone/avante.nvim',
-  enabled = require( 'nixCatsUtils' ).enableForCategory( 'ai' ),
-  event = "VeryLazy",
-  lazy = false,
-  version = '*',
-  opts = {
-    provider = "copilot",
-    behavior = {
-      auto_suggestions = false,
-    }
-  },
-  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+  "yetone/avante.nvim",
+  version = false,
+  enabled = require( "nixCatsUtils" ).enableForCategory( "ai" ),
   build = "make",
-  -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
   dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    { "echasnovski/mini.icons", opts = {} },
-    {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      opts = {
-        suggestion = { enabled = false },
-        copilot_node_command = vim.fn.expand( "$HOME" ) .. "/.local/share/fnm/aliases/default/bin/node",
-        panel = { enabled = false },
-      },
-      config = function( _, opts )
-        require( "copilot" ).setup( opts )
-      end,
-    },
-    {
-      -- support for image pasting
-      "HakonHarnes/img-clip.nvim",
-      event = "VeryLazy",
-      opts = {
-        -- recommended settings
-        default = {
-          embed_image_as_base64 = false,
-          prompt_for_file_name = false,
-          drag_and_drop = {
-            insert_mode = true,
-          },
-          -- required for Windows users
-          use_absolute_path = true,
-        },
-      },
-    },
-    {
-      -- Make sure to set this up properly if you have lazy=true
-      'MeanderingProgrammer/render-markdown.nvim',
-      opts = {
-        file_types = { "markdown", "Avante" },
-      },
-      ft = { "markdown", "Avante" },
-    },
   },
+  keys = {
+    { "<leader>aa", "<cmd>Avante ask", desc = "Avante Ask" },
+  },
+  opts = vim.tbl_extend( "force", {
+    provider = "copilot",
+    selector = {
+      provider = "snacks",
+    },
+    system_prompt = function()
+      local hub = require( "mcphub" ).get_hub_instance()
+      return hub and hub:get_active_servers_prompt() or ""
+    end,
+    custom_tools = function()
+      return {
+        require( "mcphub.extensions.avante" ).mcp_tool(),
+      }
+    end,
+    disabled_tools = {},
+  }, require( "nixCatsUtils" ).getCatOrDefault( "avanteOpts", {} ) or {} ),
+  init = function()
+    if require( "nixCatsUtils" ).getCatOrDefault( "avanteOpts.load_env_keys" ) then
+      local key = vim.trim( vim.system({ "rbw", "get", "delorean" }):wait().stdout )
+      vim.fn.setenv( "OPENAI_API_KEY", key )
+      vim.fn.setenv( "ANTHROPIC_API_KEY", key )
+    end
+  end,
 }
