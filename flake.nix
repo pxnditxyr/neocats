@@ -161,6 +161,7 @@
           lsp = with pkgs.vimPlugins; [
             fidget-nvim
             lazydev-nvim
+            trouble-nvim
           ];
 
           syntax = with pkgs.vimPlugins; [
