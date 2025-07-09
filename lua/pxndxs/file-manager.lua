@@ -31,7 +31,9 @@ return {
           "mongo",
           ".direnv",
           "postgres-db",
-          "dist"
+          "dist",
+          "redis-data",
+          "target",
         }
         local root_path = vim.fn.getcwd()
         local files_path = vim.fn.expand( "%" )

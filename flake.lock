@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751512405,
-        "narHash": "sha256-ujHoogMQLb6aVHehHEglx9Ilpt99biBa5XNNmKiaINE=",
+        "lastModified": 1751994149,
+        "narHash": "sha256-6ujhvnr+JUVMjQPGLLFPrEDNndM9iQchWoEpO9kIJE0=",
         "owner": "Saghen",
         "repo": "blink.cmp",
-        "rev": "6d6b0092cfe570ade9b183cd53bb1a620290d02b",
+        "rev": "f66e22e3003c9dfe2eb7cddb4d314a57e48ac752",
         "type": "github"
       },
       "original": {
@@ -331,11 +331,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1751652238,
-        "narHash": "sha256-PEDrcNzwoTbKx7ptsJJQvEO0J40VC8FUMg4gCQ0HGBI=",
+        "lastModified": 1752037112,
+        "narHash": "sha256-qpEizIc2IgYbZ27zJG21JR0jz+CkOwCczqyaboML3/k=",
         "owner": "ravitemer",
         "repo": "mcp-hub",
-        "rev": "5cdd5719c70d98e20e23ae4301338d897e862ec3",
+        "rev": "114886ef0a61e62b800cf68521c73e3689b74fe3",
         "type": "github"
       },
       "original": {
@@ -350,11 +350,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1751607217,
-        "narHash": "sha256-WhvNqwHRTQ59o1I9DWNxp9PueXRxFntmLrXAGIY7CkU=",
+        "lastModified": 1752039065,
+        "narHash": "sha256-PpJdZIezV9RPz3g4DUa+BLAJ0pWw7BlAl8Wd5nb4xmI=",
         "owner": "ravitemer",
         "repo": "mcphub.nvim",
-        "rev": "15d490149502a8fb523a148dd564d597d34c3eb4",
+        "rev": "68c510efc174cb9a68dca3b14a8e9ebd7ab73eef",
         "type": "github"
       },
       "original": {
@@ -365,11 +365,11 @@
     },
     "nixCats": {
       "locked": {
-        "lastModified": 1750385661,
-        "narHash": "sha256-JpIEf5IrOzMTjowkxB6kgh4AK3Dp9i/T9G4w2ZiKMgQ=",
+        "lastModified": 1751874031,
+        "narHash": "sha256-Bj8RGeMMNT4MThQJaKjML123kTXiKtTPsXWC2ieaiDc=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "04379fef2fbd4c9d8f4c9a6203cef135ab0b1acd",
+        "rev": "a985eb3e7d30d3f9c9cf7e8a8718d2d10126bcbd",
         "type": "github"
       },
       "original": {
@@ -440,11 +440,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1751786137,
-        "narHash": "sha256-lIlUKVGCGsh0Q2EA7/6xRtKUZjaQ/ur8uUyY+MynHXQ=",
+        "lastModified": 1751949589,
+        "narHash": "sha256-mgFxAPLWw0Kq+C8P3dRrZrOYEQXOtKuYVlo9xvPntt8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ceb24d94c6feaa4e8737a8e2bd3cf71c3a7eaaa0",
+        "rev": "9b008d60392981ad674e04016d25619281550a9d",
         "type": "github"
       },
       "original": {
@@ -472,11 +472,11 @@
     "plugins-gitsigns.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1751704137,
-        "narHash": "sha256-kyQM2JxrJmrEIkUpRsJp1Lv3vEv5TCgkLsbBZnu7gLw=",
+        "lastModified": 1752069390,
+        "narHash": "sha256-bIpIT3yS+Mk6p8FRxEUQ3YcsaoOjkSVZGOdcvCvmP00=",
         "owner": "lewis6991",
         "repo": "gitsigns.nvim",
-        "rev": "362fe61f9f19e9bceff178792780df5cce118a7d",
+        "rev": "7bbc674278f22376850576dfdddf43bbc17e62b5",
         "type": "github"
       },
       "original": {
@@ -488,11 +488,11 @@
     "plugins-luasnip": {
       "flake": false,
       "locked": {
-        "lastModified": 1750843827,
-        "narHash": "sha256-F61yj2BYppv2HDqQrkeCDy6DhjkKypZPL/jWJqHRB5o=",
+        "lastModified": 1751838474,
+        "narHash": "sha256-vEHHSE3lt6iBkoA4ye6NbU5xyBS0J29dLjQrljxk6LU=",
         "owner": "L3MON4D3",
         "repo": "LuaSnip",
-        "rev": "eda5be8f0ce9816278671f0b578cdbb8b762c701",
+        "rev": "66b5c2707e624dcd2cd3605676c64a2efe47e9d1",
         "type": "github"
       },
       "original": {
@@ -632,11 +632,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1751649586,
-        "narHash": "sha256-96M9ALIdQhOlZDMCmAtGKl8Ueprhn56kzRSkMdmOf8U=",
+        "lastModified": 1752067219,
+        "narHash": "sha256-h6p3Fl+weH3cQEiQDJ+PuHZidDrG0Ebp179X6OUCeu0=",
         "owner": "prisma",
         "repo": "language-tools",
-        "rev": "e49959847dda570ddad3f1b2f108fa7f9c24c9a7",
+        "rev": "bcffdbe826904db2600653b5eb36815bdc921ea2",
         "type": "github"
       },
       "original": {
