@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1751994149,
-        "narHash": "sha256-6ujhvnr+JUVMjQPGLLFPrEDNndM9iQchWoEpO9kIJE0=",
+        "lastModified": 1752422770,
+        "narHash": "sha256-R95i3dDVBfH0oxTdK0F0ami0SAk0VVONXIlX6ZF0kmk=",
         "owner": "Saghen",
         "repo": "blink.cmp",
-        "rev": "f66e22e3003c9dfe2eb7cddb4d314a57e48ac752",
+        "rev": "3536ce464e82843b00c76718d9bfe1994647d686",
         "type": "github"
       },
       "original": {
@@ -350,11 +350,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1752039065,
-        "narHash": "sha256-PpJdZIezV9RPz3g4DUa+BLAJ0pWw7BlAl8Wd5nb4xmI=",
+        "lastModified": 1752228471,
+        "narHash": "sha256-ZmyjMKxMOeNGeNK3eJdIKo8gp2yakeJl7jTadeL9Nmw=",
         "owner": "ravitemer",
         "repo": "mcphub.nvim",
-        "rev": "68c510efc174cb9a68dca3b14a8e9ebd7ab73eef",
+        "rev": "64dccdebde5e48e2428155c114da75fcb15b4943",
         "type": "github"
       },
       "original": {
@@ -440,11 +440,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1751949589,
-        "narHash": "sha256-mgFxAPLWw0Kq+C8P3dRrZrOYEQXOtKuYVlo9xvPntt8=",
+        "lastModified": 1752077645,
+        "narHash": "sha256-HM791ZQtXV93xtCY+ZxG1REzhQenSQO020cu6rHtAPk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9b008d60392981ad674e04016d25619281550a9d",
+        "rev": "be9e214982e20b8310878ac2baa063a961c1bdf6",
         "type": "github"
       },
       "original": {
@@ -472,11 +472,11 @@
     "plugins-gitsigns.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1752069390,
-        "narHash": "sha256-bIpIT3yS+Mk6p8FRxEUQ3YcsaoOjkSVZGOdcvCvmP00=",
+        "lastModified": 1752228677,
+        "narHash": "sha256-81sJe2qkEmq9QeiZvGKKaAfv8Fx1EDxn+A1AeNFl2aE=",
         "owner": "lewis6991",
         "repo": "gitsigns.nvim",
-        "rev": "7bbc674278f22376850576dfdddf43bbc17e62b5",
+        "rev": "4666d040b60d1dc0e474ccd9a3fd3c4d67b4767c",
         "type": "github"
       },
       "original": {
@@ -632,11 +632,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1752067219,
-        "narHash": "sha256-h6p3Fl+weH3cQEiQDJ+PuHZidDrG0Ebp179X6OUCeu0=",
+        "lastModified": 1752240203,
+        "narHash": "sha256-skyVh90gzuGo/mQP3bscPWopsmm4huZkim3aG9slVbw=",
         "owner": "prisma",
         "repo": "language-tools",
-        "rev": "bcffdbe826904db2600653b5eb36815bdc921ea2",
+        "rev": "e61976a25da63f07553e72467080144d3bce2284",
         "type": "github"
       },
       "original": {
