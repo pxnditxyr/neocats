@@ -2,15 +2,23 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     build = require( 'nixCatsUtils' ).lazyAdd( ':TSUpdate' ),
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
     opts = {
-      ensure_installed = require( 'nixCatsUtils' ).lazyAdd({ 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' }),
+      ensure_installed = require( 'nixCatsUtils' ).lazyAdd({
+        'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'http'
+      }),
       auto_install = require( 'nixCatsUtils' ).lazyAdd( true, false ),
 
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = {
+        enable = true,
+        disable = { 'ruby' }
+      },
     },
     config = function( _, opts )
       require( 'nvim-treesitter.install' ).prefer_git = true
@@ -55,10 +63,11 @@ return {
     event = 'BufReadPost',
     init = function ()
       local rainbow_delimiters = require 'rainbow-delimiters'
+      ---@type rainbow_delimiters.config
       vim.g.rainbow_delimiters = {
         strategy = {
-          [''] = rainbow_delimiters.strategy['global'],
-          vim = rainbow_delimiters.strategy['local'],
+          [''] = 'rainbow-delimiters.strategy.global',
+          vim = 'rainbow-delimiters.strategy.local',
         },
         query = {
           [''] = 'rainbow-delimiters',
