@@ -166,6 +166,7 @@
 
           syntax = with pkgs.vimPlugins; [
             nvim-treesitter.withAllGrammars
+            nvim-treesitter-textobjects
             rainbow-delimiters-nvim
             nvim-ts-autotag
             nvim-treesitter-context
