@@ -141,6 +141,12 @@
             rust-analyzer
           ];
 
+          go = with pkgs; [
+            gopls
+            go-tools
+            go-outline
+          ];
+
           ai = with pkgs; [
             (inputs.mcp-hub.packages.${pkgs.system}.default)
             nodejs
@@ -287,6 +293,7 @@
 
           javascript = true;
           rust = true;
+          go = true;
 
           # gitPlugins = true;
           customPlugins = true;
