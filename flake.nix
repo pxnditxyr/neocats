@@ -143,8 +143,9 @@
 
           go = with pkgs; [
             gopls
-            go-tools
-            go-outline
+            gotools
+            golangci-lint
+            golangci-lint-langserver
           ];
 
           ai = with pkgs; [
