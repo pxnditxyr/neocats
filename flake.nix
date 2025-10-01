@@ -21,6 +21,11 @@
       };
     };
 
+    "plugins-sidekick.nvim" = {
+      url = "github:folke/sidekick.nvim";
+      flake = false;
+    };
+
     "plugins-npm-info.nvim" = {
       url = "github:pxnditxyr/npm-info.nvim";
       flake = false;
@@ -109,6 +114,7 @@
         lspsAndRuntimeDeps = {
 
           general = with pkgs; [
+            zellij
             lua-language-server
             typescript-language-server
             angular-language-server
@@ -201,6 +207,7 @@
             tokyonight-nvim
             mini-icons
             pkgs.neovimPlugins.nvim-notify
+            pkgs.neovimPlugins.sidekick-nvim
           ];
 
           ai = with pkgs.vimPlugins; [

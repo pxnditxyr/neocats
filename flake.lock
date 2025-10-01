@@ -565,6 +565,22 @@
         "type": "github"
       }
     },
+    "plugins-sidekick.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759295829,
+        "narHash": "sha256-Wg3IzsYqnON5rsVhGXGyhjUgWM9+RG9LV/ZwrtkckWM=",
+        "owner": "folke",
+        "repo": "sidekick.nvim",
+        "rev": "8c940476cae4e2ba779ed6c73080d097694e406c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "sidekick.nvim",
+        "type": "github"
+      }
+    },
     "plugins-snacks.nvim": {
       "flake": false,
       "locked": {
@@ -659,6 +675,7 @@
         "plugins-npm-info.nvim": "plugins-npm-info.nvim",
         "plugins-nvim-notify": "plugins-nvim-notify",
         "plugins-oil.nvim": "plugins-oil.nvim",
+        "plugins-sidekick.nvim": "plugins-sidekick.nvim",
         "plugins-snacks.nvim": "plugins-snacks.nvim",
         "prisma-language-tools": "prisma-language-tools"
       }

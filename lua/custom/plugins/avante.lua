@@ -8,7 +8,11 @@ return {
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { "<leader>aa", "<cmd>Avante ask", desc = "Avante Ask" },
+    {
+      "<leader>ag",
+      ":AvanteAsk<CR>",
+      desc = "Avante Ask",
+    },
   },
   opts = vim.tbl_extend( "force", {
     provider = "copilot",
