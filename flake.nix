@@ -128,7 +128,7 @@
             vscode-langservers-extracted
             deno
             phpactor
-            # (inputs.prisma-language-tools.packages.${pkgs.system}.prisma-language-server)
+            # (inputs.prisma-language-tools.packages.${pkgs.stdenv.hostPlatform.system}.prisma-language-server)
 
             typescript
             fzf
@@ -136,7 +136,7 @@
 
             # psql
             postgresql
-            mysql-client
+            mariadb.client
           ];
 
           rust = with pkgs; [
@@ -155,7 +155,7 @@
           ];
 
           ai = with pkgs; [
-            (inputs.mcp-hub.packages.${pkgs.system}.default)
+            (inputs.mcp-hub.packages.${pkgs.stdenv.hostPlatform.system}.default)
             nodejs
             uv
           ];
@@ -194,7 +194,7 @@
           ];
 
           completion = with pkgs.vimPlugins; [
-            (inputs.blink.packages.${ pkgs.system }.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
+            (inputs.blink.packages.${pkgs.stdenv.hostPlatform.system}.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
             blink-compat
             blink-emoji-nvim
             # luasnip
@@ -213,8 +213,8 @@
           ai = with pkgs.vimPlugins; [
             supermaven-nvim
             avante-nvim
-            (inputs.mcp-hub-nvim.packages.${pkgs.system}.default.overrideAttrs { pname = "mcphub.nvim"; })
-            (inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.vimPlugins.copilot-lua)
+            (inputs.mcp-hub-nvim.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs { pname = "mcphub.nvim"; })
+            (inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vimPlugins.copilot-lua)
             plenary-nvim
             nui-nvim
           ];
@@ -282,7 +282,7 @@
         settings = {
           wrapRc = true;
           aliases = [ "vim" ];
-          # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+          # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
         };
         categories = {
           general = true;
