@@ -2,6 +2,12 @@ require( 'nixCatsUtils' ).setup({
   non_nix_value = true,
 })
 
+vim.filetype.add {
+  extension = {
+    [ 'http' ] = 'http',
+  },
+}
+
 require( 'pxndxs.options' )
 require( 'pxndxs.diagnostics' )
 require( 'pxndxs.borders' )

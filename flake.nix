@@ -137,6 +137,9 @@
             # psql
             postgresql
             mariadb.client
+
+            # kulala
+            kulala-fmt
           ];
 
           rust = with pkgs; [
@@ -161,86 +164,99 @@
           ];
         };
 
-        startupPlugins = {
-          # gitPlugins = with pkgs.neovimPlugins; [ ];
-          general = with pkgs.vimPlugins; [
-            vim-surround
-            pkgs.neovimPlugins.snacks-nvim
-            ultimate-autopair-nvim
-            nvim-highlight-colors
-            (pkgs.neovimPlugins.multicursor-nvim.overrideAttrs {pname = "multicursor.nvim";})
-          ];
+        startupPlugins =
+          with pkgs.vimPlugins;
+          let
+            tree-sitter-kulala-http-grammar = pkgs.tree-sitter.buildGrammar {
+              language = "kulala_http";
+              version = pkgs.vimPlugins.kulala-nvim.version;
+              src = pkgs.vimPlugins.kulala-nvim;
+              location = "lua/tree-sitter";
+            };
+            all-grammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (
+              plugins: pkgs.vimPlugins.nvim-treesitter.allGrammars ++ [ tree-sitter-kulala-http-grammar ]
+            );
+          in
+          {
+            # gitPlugins = with pkgs.neovimPlugins; [ ];
+            general = with pkgs.vimPlugins; [
+              vim-surround
+              pkgs.neovimPlugins.snacks-nvim
+              ultimate-autopair-nvim
+              nvim-highlight-colors
+              (pkgs.neovimPlugins.multicursor-nvim.overrideAttrs {pname = "multicursor.nvim";})
+            ];
 
-          lsp = with pkgs.vimPlugins; [
-            fidget-nvim
-            lazydev-nvim
-            trouble-nvim
-          ];
+            lsp = with pkgs.vimPlugins; [
+              fidget-nvim
+              lazydev-nvim
+              trouble-nvim
+            ];
 
-          syntax = with pkgs.vimPlugins; [
-            nvim-treesitter.withAllGrammars
-            nvim-treesitter-textobjects
-            rainbow-delimiters-nvim
-            nvim-ts-autotag
-            nvim-treesitter-context
-            todo-comments-nvim
-            ts-comments-nvim
-          ];
+            syntax = with pkgs.vimPlugins; [
+              all-grammars
+              nvim-treesitter-textobjects
+              rainbow-delimiters-nvim
+              nvim-ts-autotag
+              nvim-treesitter-context
+              todo-comments-nvim
+              ts-comments-nvim
+            ];
 
-          file-manager = with pkgs.vimPlugins; [
-            # oil-nvim
-            pkgs.neovimPlugins.oil-nvim
-            mini-icons
-          ];
+            file-manager = with pkgs.vimPlugins; [
+              # oil-nvim
+              pkgs.neovimPlugins.oil-nvim
+              mini-icons
+            ];
 
-          completion = with pkgs.vimPlugins; [
-            (inputs.blink.packages.${pkgs.stdenv.hostPlatform.system}.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
-            blink-compat
-            blink-emoji-nvim
-            # luasnip
-            pkgs.neovimPlugins.luasnip
-            friendly-snippets
-          ];
+            completion = with pkgs.vimPlugins; [
+              (inputs.blink.packages.${pkgs.stdenv.hostPlatform.system}.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
+              blink-compat
+              blink-emoji-nvim
+              # luasnip
+              pkgs.neovimPlugins.luasnip
+              friendly-snippets
+            ];
 
-          ui = with pkgs.vimPlugins; [
-            lualine-nvim
-            tokyonight-nvim
-            mini-icons
-            pkgs.neovimPlugins.nvim-notify
-            pkgs.neovimPlugins.sidekick-nvim
-          ];
+            ui = with pkgs.vimPlugins; [
+              lualine-nvim
+              tokyonight-nvim
+              mini-icons
+              pkgs.neovimPlugins.nvim-notify
+              pkgs.neovimPlugins.sidekick-nvim
+            ];
 
-          ai = with pkgs.vimPlugins; [
-            supermaven-nvim
-            avante-nvim
-            (inputs.mcp-hub-nvim.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs { pname = "mcphub.nvim"; })
-            (inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vimPlugins.copilot-lua)
-            plenary-nvim
-            nui-nvim
-          ];
+            ai = with pkgs.vimPlugins; [
+              supermaven-nvim
+              avante-nvim
+              (inputs.mcp-hub-nvim.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs { pname = "mcphub.nvim"; })
+              (inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vimPlugins.copilot-lua)
+              plenary-nvim
+              nui-nvim
+            ];
 
-          git = with pkgs.vimPlugins; [
-            neogit
-            plenary-nvim
-            diffview-nvim
-            pkgs.neovimPlugins.gitsigns-nvim
-            fzf-lua
-          ];
+            git = with pkgs.vimPlugins; [
+              neogit
+              plenary-nvim
+              diffview-nvim
+              pkgs.neovimPlugins.gitsigns-nvim
+              fzf-lua
+            ];
 
-          db-client = with pkgs.vimPlugins; [
-            vim-dadbod-ui
-            vim-dadbod
-            vim-dadbod-completion
-          ];
+            db-client = with pkgs.vimPlugins; [
+              vim-dadbod-ui
+              vim-dadbod
+              vim-dadbod-completion
+            ];
 
-          http = with pkgs.vimPlugins; [
-            kulala-nvim
-          ];
+            http = with pkgs.vimPlugins; [
+              kulala-nvim
+            ];
 
-          javascript = with pkgs.vimPlugins; [
-            pkgs.neovimPlugins.npm-info-nvim
-          ];
-        };
+            javascript = with pkgs.vimPlugins; [
+              pkgs.neovimPlugins.npm-info-nvim
+            ];
+          };
 
         optionalPlugins = {
           # gitPlugins = with pkgs.neovimPlugins; [ ];
