@@ -31,11 +31,6 @@
       flake = false;
     };
 
-    "plugins-nvim-notify" = {
-      url = "github:rcarriga/nvim-notify";
-      flake = false;
-    };
-
     "plugins-multicursor-nvim" = {
       url = "github:jake-stewart/multicursor.nvim";
       flake = false;
@@ -131,7 +126,6 @@
             # (inputs.prisma-language-tools.packages.${pkgs.stdenv.hostPlatform.system}.prisma-language-server)
 
             typescript
-            fzf
             ripgrep
 
             # psql
@@ -162,6 +156,7 @@
             nodejs
             uv
           ];
+
         };
 
         startupPlugins =
@@ -178,7 +173,6 @@
             );
           in
           {
-            # gitPlugins = with pkgs.neovimPlugins; [ ];
             general = with pkgs.vimPlugins; [
               vim-surround
               pkgs.neovimPlugins.snacks-nvim
@@ -222,7 +216,6 @@
               lualine-nvim
               tokyonight-nvim
               mini-icons
-              pkgs.neovimPlugins.nvim-notify
               pkgs.neovimPlugins.sidekick-nvim
             ];
 
@@ -235,12 +228,17 @@
               nui-nvim
             ];
 
+            dev = with pkgs.vimPlugins; [
+              nvim-dap
+              nvim-dap-ui
+              nvim-dap-virtual-text
+            ];
+
             git = with pkgs.vimPlugins; [
               neogit
               plenary-nvim
               diffview-nvim
               pkgs.neovimPlugins.gitsigns-nvim
-              fzf-lua
             ];
 
             db-client = with pkgs.vimPlugins; [
@@ -311,6 +309,7 @@
 
           ui = true;
           ai = true;
+          dev = true;
 
           db-client = true;
           http = true;
