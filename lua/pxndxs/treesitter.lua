@@ -7,7 +7,11 @@ return {
     },
     opts = {
       ensure_installed = require( 'nixCatsUtils' ).lazyAdd({
-        'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'http'
+        'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'http',
+        'regex', 'toml', 'yaml', 'json', 'json5', 'jsonc',
+        'tsx', 'typescript', 'javascript', 'jsdoc',
+        'css', 'scss', 'prisma', 'graphql',
+        'python', 'go', 'rust', 'dockerfile', 'gitignore'
       }),
       auto_install = require( 'nixCatsUtils' ).lazyAdd( true, false ),
 

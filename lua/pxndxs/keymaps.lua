@@ -18,6 +18,8 @@ keymap.set( 'x', '<leader>p', '"_dP', opts )
 
 keymap.set( 'n', '<leader>ll', 'a<Space><Esc>h%i<Space><Esc>l%', opts )
 
+-- Clear search highlights
+keymap.set( 'n', '<Esc>', '<cmd>nohlsearch<CR>', opts )
 
 -- save and quit
 keymap.set( 'n', '<leader>z', ':q<CR>', opts )

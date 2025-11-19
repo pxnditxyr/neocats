@@ -21,7 +21,10 @@ vim.api.nvim_create_autocmd( "LspAttach", {
     -- map( "<leader>D", require( "snacks" ).picker.lsp_type_definitions, "Type [D]efinition" )
     map( "<leader>ds", require( "snacks" ).picker.lsp_symbols, "[D]ocument [S]ymbols" )
     map( "<leader>ws", require( "snacks" ).picker.lsp_workspace_symbols, "[W]orkspace [S]ymbols" )
-    -- map( "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction" )
+    map( "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction" )
+    map( "<leader>f", function()
+      vim.lsp.buf.format({ async = true })
+    end, "[F]ormat buffer" )
 
     local client = vim.lsp.get_client_by_id( event.data.client_id )
     if client and client.server_capabilities.documentHighlightProvider then

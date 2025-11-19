@@ -179,6 +179,10 @@
               ultimate-autopair-nvim
               nvim-highlight-colors
               (pkgs.neovimPlugins.multicursor-nvim.overrideAttrs {pname = "multicursor.nvim";})
+
+                flash-nvim
+                persistence-nvim
+                which-key-nvim
             ];
 
             lsp = with pkgs.vimPlugins; [

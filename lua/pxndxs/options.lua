@@ -3,8 +3,12 @@ vim.g.maplocalleader = " "
 
 
 vim.o.updatetime = 250
+vim.o.timeoutlen = 300
 
 vim.o.clipboard = "unnamedplus"
+
+-- Popup and UI
+vim.o.pumheight = 10
 
 -- UI General
 vim.o.number = true
@@ -38,8 +42,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Scroll
-vim.o.scrolloff     = 4
-vim.o.sidescrolloff = 4
+vim.o.scrolloff     = 8
+vim.o.sidescrolloff = 8
 
 -- Spelling
 vim.o.spell     = true
