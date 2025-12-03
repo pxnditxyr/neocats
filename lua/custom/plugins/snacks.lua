@@ -93,6 +93,23 @@ return {
     picker = {
       enabled = true,
       ui_select = true,
+      exclude = {
+        ".git",
+        "node_modules",
+        "target",
+        "build",
+        ".cache",
+        ".idea",
+        ".vscode",
+        "__pycache__",
+        ".pytest_cache",
+        ".DS_Store",
+        "bun.lock",
+        "package-lock.json",
+        "yarn.lock",
+        "pnpm-lock.yaml",
+        "flake.lock",
+      }
     },
     notifier = { enabled = true },
     quickfile = { enabled = true },
