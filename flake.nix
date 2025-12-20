@@ -6,9 +6,9 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
-    # neovim-nightly-overlay = {
-    #   url = "github:nix-community/neovim-nightly-overlay";
-    # };
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+    };
 
     prisma-language-tools = {
       url = "github:prisma/language-tools";
@@ -300,7 +300,7 @@
         settings = {
           wrapRc = true;
           aliases = [ "vim" ];
-          # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
+          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
         };
         categories = {
           general = true;
