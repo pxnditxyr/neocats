@@ -41,11 +41,6 @@
       flake = false;
     };
 
-    "plugins-luasnip" = {
-      url = "github:L3MON4D3/LuaSnip";
-      flake = false;
-    };
-
     "plugins-gitsigns.nvim" = {
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
@@ -211,8 +206,6 @@
               (inputs.blink.packages.${pkgs.stdenv.hostPlatform.system}.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
               blink-compat
               blink-emoji-nvim
-              # luasnip
-              pkgs.neovimPlugins.luasnip
               friendly-snippets
             ];
 

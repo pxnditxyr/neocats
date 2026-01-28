@@ -1,6 +1,7 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    name = 'nvim-treesitter',
     build = require( 'nixCatsUtils' ).lazyAdd( ':TSUpdate' ),
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -24,10 +25,34 @@ return {
         disable = { 'ruby' }
       },
     },
-    config = function( _, opts )
-      require( 'nvim-treesitter.install' ).prefer_git = true
-      ---@diagnostic disable-next-line: missing-fields
-      require( 'nvim-treesitter.configs' ).setup( opts )
+    config = function(_, opts)
+      local ts = require('nvim-treesitter')
+
+      if opts.parsers then
+        ts.install(opts.parsers)
+      end
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          local ok = pcall(vim.treesitter.start)
+          if not ok then
+            return
+          end
+        end,
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          if vim.bo[args.buf].filetype == 'ruby' then
+            return
+          end
+
+          vim.bo[args.buf].indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+        end,
+      })
+
+      vim.o.foldmethod = 'expr'
+      vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     end,
   },
   {
