@@ -169,7 +169,7 @@
           in
           {
             general = with pkgs.vimPlugins; [
-              vim-surround
+              mini-nvim
               pkgs.neovimPlugins.snacks-nvim
               ultimate-autopair-nvim
               nvim-highlight-colors

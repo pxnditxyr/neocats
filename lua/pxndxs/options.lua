@@ -53,6 +53,18 @@ vim.o.spelllang = "en_us"
 vim.o.splitbelow = true
 vim.o.splitright = true
 
+-- Markdown and concealment
+vim.o.conceallevel = 2
+vim.o.concealcursor = ""
+
+-- Visual block mode
+vim.o.virtualedit = "block"
+
+-- Session management
+vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- Smooth scrolling (Neovim 0.10+)
+vim.o.smoothscroll = true
 
 -- Folding
 vim.o.foldmethod = "expr"

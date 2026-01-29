@@ -1,5 +1,5 @@
 local is_wsl = (function()
-  local os_uname = vim.loop.os_uname()
+  local os_uname = vim.uv.os_uname()
   local version = os_uname.version:lower()
   local release = os_uname.release:lower()
   return version:find('microsoft') ~= nil or version:find('wsl') ~= nil
@@ -78,12 +78,6 @@ return {
         },
       },
 
-
-
-      -- snippets = {
-      --   preset = "luasnip"
-      -- },
-
       cmdline = {
         enabled = not is_wsl
       },
@@ -100,7 +94,7 @@ return {
           snippets = {
             name = "Snippets",
             module = "blink.cmp.sources.snippets",
-            score_offset = 85,
+            score_offset = -10,
 
             opts = {
               friendly_snippets = true,
