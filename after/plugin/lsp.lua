@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd( "LspAttach", {
     map( "<leader>ws", require( "snacks" ).picker.lsp_workspace_symbols, "[W]orkspace [S]ymbols" )
     map( "<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction" )
     map( "<leader>f", function()
-      vim.lsp.buf.format({ async = true })
+      require("conform").format({ async = true, lsp_fallback = true })
     end, "[F]ormat buffer" )
 
     local client = vim.lsp.get_client_by_id( event.data.client_id )

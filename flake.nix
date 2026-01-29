@@ -129,6 +129,13 @@
 
             # kulala
             kulala-fmt
+
+            # Formatters
+            stylua
+            nixfmt-rfc-style
+            prettierd
+            isort
+            black
           ];
 
           rust = with pkgs; [
@@ -178,6 +185,7 @@
                 flash-nvim
                 persistence-nvim
                 which-key-nvim
+                conform-nvim
             ];
 
             lsp = with pkgs.vimPlugins; [
