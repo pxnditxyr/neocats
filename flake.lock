@@ -574,6 +574,22 @@
         "type": "github"
       }
     },
+    "plugins-neotest": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762592165,
+        "narHash": "sha256-0C4CWTHXXsC/dbZvW5KT+oNXX07rweh2Nem385hwLmI=",
+        "owner": "nvim-neotest",
+        "repo": "neotest",
+        "rev": "deadfb1af5ce458742671ad3a013acb9a6b41178",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neotest",
+        "repo": "neotest",
+        "type": "github"
+      }
+    },
     "plugins-npm-info.nvim": {
       "flake": false,
       "locked": {
@@ -713,6 +729,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "plugins-gitsigns.nvim": "plugins-gitsigns.nvim",
         "plugins-multicursor-nvim": "plugins-multicursor-nvim",
+        "plugins-neotest": "plugins-neotest",
         "plugins-npm-info.nvim": "plugins-npm-info.nvim",
         "plugins-oil.nvim": "plugins-oil.nvim",
         "plugins-sidekick.nvim": "plugins-sidekick.nvim",

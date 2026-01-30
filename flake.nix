@@ -51,6 +51,11 @@
       flake = false;
     };
 
+    "plugins-neotest" = {
+      url = "github:nvim-neotest/neotest";
+      flake = false;
+    };
+
     mcp-hub-nvim = {
       url = "github:/ravitemer/mcphub.nvim";
     };
@@ -249,7 +254,7 @@
                 nvim-dap-ui
                 nvim-dap-virtual-text
 
-                neotest
+                pkgs.neovimPlugins.neotest
                 neotest-go
                 neotest-python
                 neotest-jest
