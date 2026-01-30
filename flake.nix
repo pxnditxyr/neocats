@@ -237,6 +237,13 @@
               nvim-dap
               nvim-dap-ui
               nvim-dap-virtual-text
+
+              neotest
+              neotest-go
+              neotest-python
+              neotest-jest
+              neotest-vitest
+              FixCursorHold-nvim
             ];
 
             git = with pkgs.vimPlugins; [
