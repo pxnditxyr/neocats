@@ -60,335 +60,371 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixCats,
-    ...
-  }@inputs: let
-    inherit (nixCats) utils;
-    luaPath = "${./.}";
-    forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
-    # import nixpkgs { config = extra_pkg_config; inherit system; }
-    extra_pkg_config = {
-      allowUnfree = true;
-    };
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixCats,
+      ...
+    }@inputs:
+    let
+      inherit (nixCats) utils;
+      luaPath = "${./.}";
+      forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
+      # import nixpkgs { config = extra_pkg_config; inherit system; }
+      extra_pkg_config = {
+        allowUnfree = true;
+      };
 
-    dependencyOverlays = /* (import ./overlays inputs) ++ */ [
-      # This overlay grabs all the inputs named in the format
-      # `plugins-<pluginName>`
-      # Once we add this overlay to our nixpkgs, we are able to
-      # use `pkgs.neovimPlugins`, which is a set of our plugins.
-      # (utils.standardPluginOverlay inputs)
-      (utils.sanitizedPluginOverlay inputs)
-      # add any other flake overlays here.
+      dependencyOverlays = # (import ./overlays inputs) ++
+        [
+          # This overlay grabs all the inputs named in the format
+          # `plugins-<pluginName>`
+          # Once we add this overlay to our nixpkgs, we are able to
+          # use `pkgs.neovimPlugins`, which is a set of our plugins.
+          # (utils.standardPluginOverlay inputs)
+          (utils.sanitizedPluginOverlay inputs)
+          # add any other flake overlays here.
 
-      # when other people mess up their overlays by wrapping them with system,
-      #      # This is for plugins that will load at startup without using packadd: you may instead call this function on their overlay.
-      # it will check if it has the system in the set, and if so return the desired overlay
-      # (utils.fixSystemizedOverlay inputs.codeium.overlays
-      #   (system: inputs.codeium.overlays.${system}.default)
-      # )
-    ];
+          # when other people mess up their overlays by wrapping them with system,
+          #      # This is for plugins that will load at startup without using packadd: you may instead call this function on their overlay.
+          # it will check if it has the system in the set, and if so return the desired overlay
+          # (utils.fixSystemizedOverlay inputs.codeium.overlays
+          #   (system: inputs.codeium.overlays.${system}.default)
+          # )
+        ];
 
-    categoryDefinitions = {
-        pkgs,
-        settings,
-        categories,
-        extra,
-        name,
-        mkNvimPlugin,
-        ...
-      }@packageDef:
-      {
-        lspsAndRuntimeDeps = {
+      categoryDefinitions =
+        {
+          pkgs,
+          settings,
+          categories,
+          extra,
+          name,
+          mkNvimPlugin,
+          ...
+        }@packageDef:
+        {
+          lspsAndRuntimeDeps = {
 
-          general = with pkgs; [
-            zellij
-            lua-language-server
-            typescript-language-server
-            angular-language-server
-            pyright
-            nixd
-            yaml-language-server
-            tailwindcss-language-server
-            astro-language-server
-            svelte-language-server
-            dart
-            vscode-langservers-extracted
-            deno
-            phpactor
-            # (inputs.prisma-language-tools.packages.${pkgs.stdenv.hostPlatform.system}.prisma-language-server)
+            general = with pkgs; [
+              tree-sitter
 
-            typescript
-            ripgrep
+              zellij
+              lua-language-server
+              typescript-language-server
+              angular-language-server
+              pyright
+              nixd
+              yaml-language-server
+              tailwindcss-language-server
+              astro-language-server
+              svelte-language-server
+              dart
+              vscode-langservers-extracted
+              deno
+              phpactor
+              # (inputs.prisma-language-tools.packages.${pkgs.stdenv.hostPlatform.system}.prisma-language-server)
 
-            # psql
-            postgresql
-            mariadb.client
+              typescript
+              ripgrep
 
-            # kulala
-            kulala-fmt
+              # psql
+              postgresql
+              mariadb.client
 
-            # Formatters
-            stylua
-            nixfmt-rfc-style
-            prettierd
-            isort
-            black
-          ];
+              # kulala
+              kulala-fmt
 
-          rust = with pkgs; [
-            rustc
-            rustfmt
-            cargo
-            clippy
-            rust-analyzer
-          ];
+              # Formatters
+              stylua
+              pkgs.nixfmt
+              prettierd
+              shfmt
+              isort
+              black
+            ];
 
-          go = with pkgs; [
-            gopls
-            gotools
-            golangci-lint
-            golangci-lint-langserver
-          ];
+            rust = with pkgs; [
+              rustc
+              rustfmt
+              cargo
+              clippy
+              rust-analyzer
+            ];
 
-          ai = with pkgs; [
-            (inputs.mcp-hub.packages.${pkgs.stdenv.hostPlatform.system}.default)
-            nodejs
-            uv
-          ];
+            go = with pkgs; [
+              gopls
+              gotools
+              golangci-lint
+              golangci-lint-langserver
+            ];
 
-        };
+            ai = with pkgs; [
+              (inputs.mcp-hub.packages.${pkgs.stdenv.hostPlatform.system}.default)
+              nodejs
+              uv
+            ];
 
-        startupPlugins =
-          with pkgs.vimPlugins;
-          let
-            tree-sitter-kulala-http-grammar = pkgs.tree-sitter.buildGrammar {
-              language = "kulala_http";
-              version = pkgs.vimPlugins.kulala-nvim.version;
-              src = pkgs.vimPlugins.kulala-nvim;
-              location = "lua/tree-sitter";
-            };
-            all-grammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (
-              plugins: pkgs.vimPlugins.nvim-treesitter.allGrammars ++ [ tree-sitter-kulala-http-grammar ]
-            );
-          in
-          {
-            general = with pkgs.vimPlugins; [
-              mini-nvim
-              pkgs.neovimPlugins.snacks-nvim
-              ultimate-autopair-nvim
-              nvim-highlight-colors
-              (pkgs.neovimPlugins.multicursor-nvim.overrideAttrs {pname = "multicursor.nvim";})
+          };
+
+          startupPlugins =
+            with pkgs.vimPlugins;
+            let
+              tree-sitter-kulala-http-grammar = pkgs.tree-sitter.buildGrammar {
+                language = "kulala_http";
+                version = pkgs.vimPlugins.kulala-nvim.version;
+                src = pkgs.vimPlugins.kulala-nvim;
+                location = "lua/tree-sitter";
+              };
+              all-grammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (
+                plugins: pkgs.vimPlugins.nvim-treesitter.allGrammars ++ [ tree-sitter-kulala-http-grammar ]
+              );
+            in
+            {
+              general = with pkgs.vimPlugins; [
+                mini-nvim
+                pkgs.neovimPlugins.snacks-nvim
+                ultimate-autopair-nvim
+                nvim-highlight-colors
+                (pkgs.neovimPlugins.multicursor-nvim.overrideAttrs { pname = "multicursor.nvim"; })
 
                 flash-nvim
                 persistence-nvim
                 which-key-nvim
                 conform-nvim
-            ];
+              ];
 
-            lsp = with pkgs.vimPlugins; [
-              fidget-nvim
-              lazydev-nvim
-              trouble-nvim
-            ];
+              lsp = with pkgs.vimPlugins; [
+                fidget-nvim
+                lazydev-nvim
+                trouble-nvim
+              ];
 
-            syntax = with pkgs.vimPlugins; [
-              all-grammars
-              nvim-treesitter-textobjects
-              rainbow-delimiters-nvim
-              nvim-ts-autotag
-              nvim-treesitter-context
-              todo-comments-nvim
-              ts-comments-nvim
-            ];
+              syntax = with pkgs.vimPlugins; [
+                all-grammars
+                nvim-treesitter-textobjects
+                rainbow-delimiters-nvim
+                nvim-ts-autotag
+                nvim-treesitter-context
+                todo-comments-nvim
+                ts-comments-nvim
+              ];
 
-            file-manager = with pkgs.vimPlugins; [
-              # oil-nvim
-              pkgs.neovimPlugins.oil-nvim
-              mini-icons
-            ];
+              file-manager = with pkgs.vimPlugins; [
+                # oil-nvim
+                pkgs.neovimPlugins.oil-nvim
+                mini-icons
+              ];
 
-            completion = with pkgs.vimPlugins; [
-              (inputs.blink.packages.${pkgs.stdenv.hostPlatform.system}.blink-cmp.overrideAttrs { pname = "blink.cmp"; })
-              blink-compat
-              blink-emoji-nvim
-              friendly-snippets
-            ];
+              completion = with pkgs.vimPlugins; [
+                (inputs.blink.packages.${pkgs.stdenv.hostPlatform.system}.blink-cmp.overrideAttrs {
+                  pname = "blink.cmp";
+                })
+                blink-compat
+                blink-emoji-nvim
+                friendly-snippets
+              ];
 
-            ui = with pkgs.vimPlugins; [
-              lualine-nvim
-              tokyonight-nvim
-              mini-icons
-              pkgs.neovimPlugins.sidekick-nvim
-            ];
+              ui = with pkgs.vimPlugins; [
+                lualine-nvim
+                tokyonight-nvim
+                mini-icons
+                pkgs.neovimPlugins.sidekick-nvim
+              ];
 
-            ai = with pkgs.vimPlugins; [
-              supermaven-nvim
-              avante-nvim
-              (inputs.mcp-hub-nvim.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs { pname = "mcphub.nvim"; })
-              (inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vimPlugins.copilot-lua)
-              plenary-nvim
-              nui-nvim
-            ];
+              ai = with pkgs.vimPlugins; [
+                supermaven-nvim
+                avante-nvim
+                (inputs.mcp-hub-nvim.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs {
+                  pname = "mcphub.nvim";
+                })
+                (inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vimPlugins.copilot-lua)
+                plenary-nvim
+                nui-nvim
+              ];
 
-            dev = with pkgs.vimPlugins; [
-              nvim-dap
-              nvim-dap-ui
-              nvim-dap-virtual-text
+              dev = with pkgs.vimPlugins; [
+                nvim-dap
+                nvim-dap-ui
+                nvim-dap-virtual-text
 
-              neotest
-              neotest-go
-              neotest-python
-              neotest-jest
-              neotest-vitest
-              FixCursorHold-nvim
-            ];
+                neotest
+                neotest-go
+                neotest-python
+                neotest-jest
+                neotest-vitest
+                FixCursorHold-nvim
+              ];
 
-            git = with pkgs.vimPlugins; [
-              neogit
-              plenary-nvim
-              diffview-nvim
-              pkgs.neovimPlugins.gitsigns-nvim
-            ];
+              git = with pkgs.vimPlugins; [
+                neogit
+                plenary-nvim
+                diffview-nvim
+                pkgs.neovimPlugins.gitsigns-nvim
+              ];
 
-            db-client = with pkgs.vimPlugins; [
-              vim-dadbod-ui
-              vim-dadbod
-              vim-dadbod-completion
-            ];
+              db-client = with pkgs.vimPlugins; [
+                vim-dadbod-ui
+                vim-dadbod
+                vim-dadbod-completion
+              ];
 
-            http = with pkgs.vimPlugins; [
-              kulala-nvim
-            ];
+              http = with pkgs.vimPlugins; [
+                kulala-nvim
+              ];
 
-            javascript = with pkgs.vimPlugins; [
-              pkgs.neovimPlugins.npm-info-nvim
+              javascript = with pkgs.vimPlugins; [
+                pkgs.neovimPlugins.npm-info-nvim
+              ];
+            };
+
+          optionalPlugins = {
+            # gitPlugins = with pkgs.neovimPlugins; [ ];
+            # general = with pkgs.vimPlugins; [ ];
+          };
+
+          sharedLibraries = {
+            # general = with pkgs; [
+            #   # libgit2
+            # ];
+          };
+
+          environmentVariables = {
+            test = {
+              CATTESTVAR = "It worked!";
+            };
+          };
+
+          extraWrapperArgs = {
+            test = [
+              ''--set CATTESTVAR2 "It worked again!"''
             ];
           };
 
-        optionalPlugins = {
-          # gitPlugins = with pkgs.neovimPlugins; [ ];
-          # general = with pkgs.vimPlugins; [ ];
-        };
+          extraPython3Packages = {
+            test = (_: [ ]);
+          };
 
-        sharedLibraries = {
-          # general = with pkgs; [
-          #   # libgit2
-          # ];
-        };
-
-        environmentVariables = {
-          test = {
-            CATTESTVAR = "It worked!";
+          extraLuaPackages = {
+            test = [ (_: [ ]) ];
           };
         };
 
-        extraWrapperArgs = {
-          test = [
-            '' --set CATTESTVAR2 "It worked again!"''
-          ];
-        };
+      # see :help nixCats.flake.outputs.packageDefinitions
+      packageDefinitions = {
+        neocats =
+          { pkgs, ... }:
+          {
+            settings = {
+              wrapRc = true;
+              aliases = [ "vim" ];
+              neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
+            };
+            categories = {
+              general = true;
 
-        extraPython3Packages = {
-          test = (_:[]);
-        };
+              lsp = true;
+              syntax = true;
+              file-manager = true;
+              completion = true;
+              git = true;
 
-        extraLuaPackages = {
-          test = [ (_:[]) ];
-        };
+              ui = true;
+              ai = true;
+              dev = true;
+
+              db-client = true;
+              http = true;
+
+              javascript = true;
+              rust = true;
+              go = true;
+
+              # gitPlugins = true;
+              customPlugins = true;
+              test = true;
+              example = {
+                youCan = "add more than just booleans";
+                toThisSet = [
+                  "and the contents of this categories set"
+                  "will be accessible to your lua with"
+                  "nixCats('path.to.value')"
+                  "see :help nixCats"
+                ];
+              };
+            };
+          };
       };
+      defaultPackageName = "neocats";
+    in
 
+    forEachSystem (
+      system:
+      let
+        nixCatsBuilder = utils.baseBuilder luaPath {
+          inherit
+            nixpkgs
+            system
+            dependencyOverlays
+            extra_pkg_config
+            ;
+        } categoryDefinitions packageDefinitions;
+        defaultPackage = nixCatsBuilder defaultPackageName;
+        pkgs = import nixpkgs { inherit system; };
+      in
+      {
 
+        packages = utils.mkAllWithDefault defaultPackage;
 
-    # see :help nixCats.flake.outputs.packageDefinitions
-    packageDefinitions = {
-      neocats = {pkgs , ... }: {
-        settings = {
-          wrapRc = true;
-          aliases = [ "vim" ];
-          neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
-        };
-        categories = {
-          general = true;
-
-          lsp = true;
-          syntax = true;
-          file-manager = true;
-          completion = true;
-          git = true;
-
-          ui = true;
-          ai = true;
-          dev = true;
-
-          db-client = true;
-          http = true;
-
-          javascript = true;
-          rust = true;
-          go = true;
-
-          # gitPlugins = true;
-          customPlugins = true;
-          test = true;
-          example = {
-            youCan = "add more than just booleans";
-            toThisSet = [
-              "and the contents of this categories set"
-              "will be accessible to your lua with"
-              "nixCats('path.to.value')"
-              "see :help nixCats"
-            ];
+        devShells = {
+          default = pkgs.mkShell {
+            name = defaultPackageName;
+            packages = [ defaultPackage ];
+            inputsFrom = [ ];
+            shellHook = "";
           };
         };
-      };
-    };
-    defaultPackageName = "neocats";
-  in
 
-  forEachSystem (system: let
-    nixCatsBuilder = utils.baseBuilder luaPath {
-      inherit nixpkgs system dependencyOverlays extra_pkg_config;
-    } categoryDefinitions packageDefinitions;
-    defaultPackage = nixCatsBuilder defaultPackageName;
-    pkgs = import nixpkgs { inherit system; };
-  in
-  {
+      }
+    )
+    // (
+      let
+        nixosModule = utils.mkNixosModules {
+          inherit
+            defaultPackageName
+            dependencyOverlays
+            luaPath
+            categoryDefinitions
+            packageDefinitions
+            extra_pkg_config
+            nixpkgs
+            ;
+        };
+        homeModule = utils.mkHomeModules {
+          inherit
+            defaultPackageName
+            dependencyOverlays
+            luaPath
+            categoryDefinitions
+            packageDefinitions
+            extra_pkg_config
+            nixpkgs
+            ;
+        };
+      in
+      {
 
-    packages = utils.mkAllWithDefault defaultPackage;
+        overlays = utils.makeOverlays luaPath {
+          inherit nixpkgs dependencyOverlays extra_pkg_config;
+        } categoryDefinitions packageDefinitions defaultPackageName;
 
-    devShells = {
-      default = pkgs.mkShell {
-        name = defaultPackageName;
-        packages = [ defaultPackage ];
-        inputsFrom = [ ];
-        shellHook = ''
-        '';
-      };
-    };
+        nixosModules.default = nixosModule;
+        homeModules.default = homeModule;
 
-  }) // (let
-    nixosModule = utils.mkNixosModules {
-      inherit defaultPackageName dependencyOverlays luaPath
-        categoryDefinitions packageDefinitions extra_pkg_config nixpkgs;
-    };
-    homeModule = utils.mkHomeModules {
-      inherit defaultPackageName dependencyOverlays luaPath
-        categoryDefinitions packageDefinitions extra_pkg_config nixpkgs;
-    };
-  in {
-
-    overlays = utils.makeOverlays luaPath {
-      inherit nixpkgs dependencyOverlays extra_pkg_config;
-    } categoryDefinitions packageDefinitions defaultPackageName;
-
-    nixosModules.default = nixosModule;
-    homeModules.default = homeModule;
-
-    inherit utils nixosModule homeModule;
-    inherit (utils) templates;
-  });
+        inherit utils nixosModule homeModule;
+        inherit (utils) templates;
+      }
+    );
 
 }
