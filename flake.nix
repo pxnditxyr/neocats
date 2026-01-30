@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     neovim-nightly-overlay = {
@@ -43,6 +43,21 @@
 
     "plugins-gitsigns.nvim" = {
       url = "github:lewis6991/gitsigns.nvim";
+      flake = false;
+    };
+
+    "plugins-nvim-ufo" = {
+      url = "github:kevinhwang91/nvim-ufo";
+      flake = false;
+    };
+
+    "plugins-promise-async" = {
+      url = "github:kevinhwang91/promise-async";
+      flake = false;
+    };
+
+    "plugins-render-markdown" = {
+      url = "github:MeanderingProgrammer/render-markdown.nvim";
       flake = false;
     };
 
@@ -148,6 +163,14 @@
               shfmt
               isort
               black
+
+              # 2026 Modern LSPs & Tools
+              biome          # JS/TS linter + formatter ultrarrápido (reemplaza ESLint + Prettier)
+              vtsls          # TypeScript LSP moderno (mejor que typescript-language-server)
+              ruff           # Python linter + formatter ultrarrápido (reemplaza black + isort)
+              marksman       # Markdown LSP (autocomplete, goto definition, links)
+              harper         # Grammar checker LSP para docs en inglés
+              taplo          # TOML LSP para Cargo.toml, pyproject.toml
             ];
 
             rust = with pkgs; [
@@ -236,6 +259,10 @@
                 tokyonight-nvim
                 mini-icons
                 pkgs.neovimPlugins.sidekick-nvim
+                pkgs.neovimPlugins.nvim-ufo
+                pkgs.neovimPlugins.promise-async
+                pkgs.neovimPlugins.render-markdown
+
               ];
 
               ai = with pkgs.vimPlugins; [

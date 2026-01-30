@@ -1,6 +1,5 @@
-vim.g.mapleader      = " "
+vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
@@ -23,11 +22,11 @@ vim.o.mouse = ""
 vim.o.guicursor = ""
 
 -- Indentation
-vim.o.expandtab   = true
-vim.o.tabstop     = 2
-vim.o.shiftwidth  = 2
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
-vim.o.autoindent  = true
+vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.wrap = false
 
@@ -37,16 +36,16 @@ vim.o.undofile = true
 
 -- Searching
 vim.o.incsearch = true
-vim.o.hlsearch  = true
+vim.o.hlsearch = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Scroll
-vim.o.scrolloff     = 8
+vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 
 -- Spelling
-vim.o.spell     = true
+vim.o.spell = true
 vim.o.spelllang = "en_us"
 
 -- Windows
@@ -65,6 +64,12 @@ vim.o.sessionoptions = "buffers,curdir,folds,help,tabpages,winsize,winpos,termin
 
 -- Smooth scrolling (Neovim 0.10+)
 vim.o.smoothscroll = true
+
+-- Split behavior (Neovim 0.10+)
+vim.o.splitkeep = "screen"
+
+-- Incremental command preview (Neovim 0.10+)
+vim.o.inccommand = "split"
 
 -- Folding
 vim.o.foldmethod = "expr"

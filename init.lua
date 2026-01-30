@@ -1,3 +1,7 @@
+if vim.loader then
+	vim.loader.enable()
+end
+
 require("nixCatsUtils").setup({
 	non_nix_value = true,
 })
