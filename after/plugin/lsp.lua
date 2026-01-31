@@ -66,15 +66,13 @@ vim.lsp.enable("dartls")
 vim.lsp.enable("nixd", require("nixCatsUtils").isNixCats)
 
 -- JS/TS based LSP
--- vim.lsp.enable("ts_ls")  -- ❌ DESHABILITADO: Usar vtsls en su lugar (más rápido, menos bugs)
-vim.lsp.enable("vtsls")  -- ✅ Modern TS LSP (2026) - Reemplaza ts_ls
+-- vim.lsp.enable("ts_ls")
+vim.lsp.enable("vtsls")
 vim.lsp.enable("astro")
 vim.lsp.enable("denols")
 vim.lsp.enable("svelte")
 vim.lsp.enable("angularls")
 vim.lsp.enable("prismals")
--- NOTA: Biome se usa como FORMATTER en conform.nvim, no como LSP aquí
--- Esto evita conflictos: vtsls = diagnostics/autocomplete, biome = format/lint
 
 -- CSS based LSP
 vim.lsp.enable("tailwindcss")
@@ -86,6 +84,6 @@ vim.lsp.enable("gopls", require("nixCatsUtils").enableForCategory("go"))
 vim.lsp.enable("rust_analyzer", require("nixCatsUtils").enableForCategory("rust"))
 
 -- 2026 Modern LSPs
-vim.lsp.enable("marksman")  -- Markdown LSP
-vim.lsp.enable("harper_ls")  -- Grammar checker
-vim.lsp.enable("taplo")     -- TOML LSP
+vim.lsp.enable("marksman")
+vim.lsp.enable("harper_ls")
+vim.lsp.enable("taplo")

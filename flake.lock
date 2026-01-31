@@ -654,7 +654,7 @@
         "type": "github"
       }
     },
-    "plugins-render-markdown": {
+    "plugins-render-markdown.nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1769755568,
@@ -782,7 +782,7 @@
         "plugins-nvim-ufo": "plugins-nvim-ufo",
         "plugins-oil.nvim": "plugins-oil.nvim",
         "plugins-promise-async": "plugins-promise-async",
-        "plugins-render-markdown": "plugins-render-markdown",
+        "plugins-render-markdown.nvim": "plugins-render-markdown.nvim",
         "plugins-sidekick.nvim": "plugins-sidekick.nvim",
         "plugins-snacks.nvim": "plugins-snacks.nvim",
         "prisma-language-tools": "prisma-language-tools"

@@ -56,7 +56,7 @@
       flake = false;
     };
 
-    "plugins-render-markdown" = {
+    "plugins-render-markdown.nvim" = {
       url = "github:MeanderingProgrammer/render-markdown.nvim";
       flake = false;
     };
@@ -165,12 +165,12 @@
               black
 
               # 2026 Modern LSPs & Tools
-              biome          # JS/TS linter + formatter ultrarrápido (reemplaza ESLint + Prettier)
-              vtsls          # TypeScript LSP moderno (mejor que typescript-language-server)
-              ruff           # Python linter + formatter ultrarrápido (reemplaza black + isort)
-              marksman       # Markdown LSP (autocomplete, goto definition, links)
-              harper         # Grammar checker LSP para docs en inglés
-              taplo          # TOML LSP para Cargo.toml, pyproject.toml
+              biome
+              vtsls
+              ruff
+              marksman
+              harper
+              taplo
             ];
 
             rust = with pkgs; [
@@ -261,7 +261,7 @@
                 pkgs.neovimPlugins.sidekick-nvim
                 pkgs.neovimPlugins.nvim-ufo
                 pkgs.neovimPlugins.promise-async
-                pkgs.neovimPlugins.render-markdown
+                pkgs.neovimPlugins.render-markdown-nvim
 
               ];
 
