@@ -1,0 +1,23 @@
+# Environment variables (API Keys)
+.env
+.env.local
+
+# Neovim
+lazy-lock.json
+
+# Nix
+result
+result-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+*.swo
+*~

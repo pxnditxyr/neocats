@@ -71,6 +71,11 @@
       flake = false;
     };
 
+    "plugins-opencode.nvim" = {
+      url = "github:nickjvandyke/opencode.nvim";
+      flake = false;
+    };
+
     mcp-hub-nvim = {
       url = "github:/ravitemer/mcphub.nvim";
     };
@@ -272,6 +277,7 @@
                   pname = "mcphub.nvim";
                 })
                 (inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vimPlugins.copilot-lua)
+                pkgs.neovimPlugins.opencode-nvim
                 plenary-nvim
                 nui-nvim
               ];
