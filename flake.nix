@@ -337,6 +337,10 @@
           };
 
           extraWrapperArgs = {
+            general = [
+              ''--set VUE_TS_PLUGIN_PATH "${pkgs.vue-language-server}/lib/node_modules/@vue/language-server"''
+            ];
+
             test = [
               ''--set CATTESTVAR2 "It worked again!"''
             ];

@@ -1,3 +1,5 @@
+local vue_plugin_path = os.getenv("VUE_TS_PLUGIN_PATH")
+
 return {
 	cmd = { "vtsls", "--stdio" },
 	root_markers = {
@@ -56,6 +58,17 @@ return {
 			experimental = {
 				completion = {
 					enableServerSideFuzzyMatch = true,
+				},
+			},
+			tsserver = {
+				globalPlugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = vue_plugin_path,
+						languages = { "vue" },
+						configNamespace = "typescript",
+						enableForWorkspaceTypeScriptVersions = true,
+					},
 				},
 			},
 		},
