@@ -172,6 +172,8 @@
               # 2026 Modern LSPs & Tools
               biome
               vtsls
+              vue-language-server
+
               ruff
               marksman
               harper
