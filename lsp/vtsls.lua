@@ -21,9 +21,19 @@ return {
 		"typescriptreact",
 		"typescript.tsx",
 		"vue",
-		"astro",
 	},
 	single_file_support = true,
+
+	on_attach = function(client)
+		if client.server_capabilities.semanticTokensProvider then
+			local semantic = client.config.filetypes and vim.tbl_contains(client.config.filetypes, "vue")
+			if semantic then
+				if vim.bo.filetype == "vue" then
+					client.server_capabilities.semanticTokensProvider.full = false
+				end
+			end
+		end
+	end,
 	settings = {
 		typescript = {
 			inlayHints = {
