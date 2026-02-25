@@ -1,4 +1,10 @@
-local vue_plugin_path = os.getenv("VUE_TS_PLUGIN_PATH")
+local vue_language_server_path = os.getenv("VUE_TS_PLUGIN_PATH")
+local vue_plugin = {
+	name = "@vue/typescript-plugin",
+	location = vue_language_server_path,
+	languages = { "vue" },
+	configNamespace = "typescript",
+}
 
 return {
 	cmd = { "vtsls", "--stdio" },
@@ -64,21 +70,9 @@ return {
 			},
 		},
 		vtsls = {
-			autoUseWorkspaceTsdk = true,
-			experimental = {
-				completion = {
-					enableServerSideFuzzyMatch = true,
-				},
-			},
 			tsserver = {
 				globalPlugins = {
-					{
-						name = "@vue/typescript-plugin",
-						location = vue_plugin_path,
-						languages = { "vue" },
-						configNamespace = "typescript",
-						enableForWorkspaceTypeScriptVersions = true,
-					},
+					vue_plugin,
 				},
 			},
 		},
