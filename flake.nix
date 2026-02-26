@@ -338,7 +338,7 @@
 
           extraWrapperArgs = {
             general = [
-              ''--set VUE_TS_PLUGIN_PATH "${pkgs.vue-language-server}/lib/language-tools/packages/typescript-plugin"''
+              ''--set VUE_TS_PLUGIN_PATH "${pkgs.vue-language-server}/lib/language-tools/packages/language-server/node_modules/@vue/language-server"''
             ];
 
             test = [
