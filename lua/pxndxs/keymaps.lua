@@ -55,4 +55,4 @@ keymap.set("n", "<C-Down>", ":resize -5<CR>", opts)
 keymap.set("n", "<C-Left>", ":vertical resize -5<CR>", opts)
 keymap.set("n", "<C-Right>", ":vertical resize +5<CR>", opts)
 
-keymap.set("v", "<leader>jq", ":'<,'>!jq .<CR>", { desc = "Formatear JSON seleccionado con jq" })
+keymap.set("v", "<leader>jq", ":'<,'>!jq .<CR>", { desc = "Format selected JSON with jq" })

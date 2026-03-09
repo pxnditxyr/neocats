@@ -8,9 +8,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gd", require("snacks").picker.lsp_definitions, "[G]oto [D]efinition")
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-		-- map("K", function()
-		-- 	vim.lsp.buf.hover({ border = "rounded" })
-		-- end, "Hover Documentation")
 
 		map("gr", require("snacks").picker.lsp_references, "[G]oto [R]eferences")
 		map("gI", require("snacks").picker.lsp_implementations, "[G]oto [I]mplementation")

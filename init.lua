@@ -34,7 +34,6 @@ require("nixCatsUtils.lazyCat").setup(nixCats.pawsible({ "allPlugins", "start", 
 	require("pxndxs.treesitter"),
 	require("pxndxs.file-manager"),
 	require("pxndxs.completion"),
-	require("pxndxs.git"),
 	require("pxndxs.ai"),
 	require("pxndxs.colorscheme"),
 

@@ -7,11 +7,11 @@ return {
         mappings = {
           add = 'ys',
           delete = 'ds',
-          find = 'zf',           -- Cambiado de 'sf' a 'zf'
-          find_left = 'zF',      -- Cambiado de 'sF' a 'zF'
-          highlight = 'zh',      -- Cambiado de 'sh' a 'zh'
+          find = 'zf',
+          find_left = 'zF',
+          highlight = 'zh',
           replace = 'cs',
-          update_n_lines = 'zn', -- Cambiado de 'sn' a 'zn'
+          update_n_lines = 'zn',
 
           suffix_last = 'l',
           suffix_next = 'n',

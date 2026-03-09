@@ -1,20 +1,20 @@
-vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float( nil, { focus = false } )]]
+local border = "rounded"
 
-local border = {
-  { "🭽", "LspFloatWinBorder" },
-  { "▔", "LspFloatWinBorder" },
-  { "🭾", "LspFloatWinBorder" },
-  { "▕", "LspFloatWinBorder" },
-  { "🭿", "LspFloatWinBorder" },
-  { "▁", "LspFloatWinBorder" },
-  { "🭼", "LspFloatWinBorder" },
-  { "▏", "LspFloatWinBorder" },
-}
-
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
----@diagnostic disable-next-line: duplicate-set-field
-function vim.lsp.util.open_floating_preview( contents, syntax, opts, ... )
-  opts = opts or {}
-  opts.border = opts.border or border
-  return orig_util_open_floating_preview( contents, syntax, opts, ... )
+vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+	config = config or {}
+	config.border = border
+	return vim.lsp.handlers.hover(err, result, ctx, config)
 end
+
+vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+	config = config or {}
+	config.border = border
+	return vim.lsp.handlers.signature_help(err, result, ctx, config)
+end
+
+vim.diagnostic.config({
+	float = {
+		border = border,
+		source = true,
+	},
+})

@@ -135,6 +135,8 @@
             general = with pkgs; [
               tree-sitter
 
+              lazygit
+              neovim-remote
               zellij
               lua-language-server
               typescript-language-server
@@ -269,7 +271,6 @@
                 pkgs.neovimPlugins.nvim-ufo
                 pkgs.neovimPlugins.promise-async
                 pkgs.neovimPlugins.render-markdown-nvim
-
               ];
 
               ai = with pkgs.vimPlugins; [
@@ -298,9 +299,7 @@
               ];
 
               git = with pkgs.vimPlugins; [
-                neogit
                 plenary-nvim
-                diffview-nvim
                 pkgs.neovimPlugins.gitsigns-nvim
               ];
 

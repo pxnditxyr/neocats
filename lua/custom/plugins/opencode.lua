@@ -91,8 +91,8 @@ return {
       require("opencode").prompt("document")
     end, { desc = "OpenCode: Document/Comment" })
 
-    --[[ OPCIÓN 2: Keymaps originales (comentado por defecto)
-    -- Descomenta este bloque si no tienes conflictos y prefieres estos atajos
+    --[[ OPTION 2: Original keymaps (commented by default)
+    -- Uncomment this block if you don't have conflicts and prefer these shortcuts
     
     vim.keymap.set({ "n", "x" }, "<C-a>", function()
       require("opencode").ask("@this: ", { submit = true })

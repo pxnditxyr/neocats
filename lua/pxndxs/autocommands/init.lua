@@ -1,6 +1,6 @@
 require( 'pxndxs.autocommands.del-after-save' )
 
--- Copy text highlight
+-- Highlight text on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking text',
   group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Close windows with 'q'
+-- Close specific window types with 'q'
 vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'help',
@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Go to last known location when opening a file
+-- Restore cursor position on file open
 vim.api.nvim_create_autocmd('BufReadPost', {
   callback = function()
     local mark = vim.api.nvim_buf_get_mark(0, '"')
@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
--- Auto crear directorios si no existen al guardar
+-- Automatically create parent directories if they don't exist when saving
 vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function(event)
     if event.match:match('^%w%w+:[\\/][\\/]') then
@@ -45,5 +45,16 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     end
     local file = vim.uv.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
+  end,
+})
+
+-- Integration with Lazygit to avoid nested instances
+-- Configures GIT_EDITOR dynamically based on the Neovim server
+vim.api.nvim_create_autocmd({ "VimEnter", "DirChanged" }, {
+  callback = function()
+    if vim.fn.executable("nvr") == 1 then
+      -- 'remote-wait' ensures Neovim waits for the commit message to be finished
+      vim.env.GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
+    end
   end,
 })
