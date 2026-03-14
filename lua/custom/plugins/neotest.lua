@@ -28,11 +28,11 @@ return {
 			desc = "Run [T]est [F]ile",
 		},
 		{
-			"<leader>ts",
+			"<leader>tr",
 			function()
 				require("neotest").summary.toggle()
 			end,
-			desc = "Toggle [T]est [S]ummary",
+			desc = "Toggle [T]est [R]eport (Summary)",
 		},
 		{
 			"<leader>to",
@@ -49,7 +49,7 @@ return {
 			desc = "Toggle [T]est [O]utput Panel",
 		},
 		{
-			"<leader>tS",
+			"<leader>tx",
 			function()
 				require("neotest").run.stop()
 			end,
