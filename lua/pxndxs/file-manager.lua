@@ -7,6 +7,10 @@ return {
     {
       "malewicz1337/oil-git.nvim",
       opts = {
+        debounce_ms = 200,
+        show_directory_highlights = false,
+        show_directory_symbols = false,
+        ignore_gitsigns_update = true,
         symbols = {
           file = {
             added = "󱝹",
