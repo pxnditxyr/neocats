@@ -114,6 +114,12 @@ return {
 					[""] = 110,
 					lua = 210,
 				},
+				condition = function(bufnr)
+					if vim.bo[bufnr].filetype == "oil" then
+						return false
+					end
+					return not vim.api.nvim_buf_get_name(bufnr):match("^oil://")
+				end,
 				highlight = {
 					"RainbowDelimiterRed",
 					"RainbowDelimiterYellow",
