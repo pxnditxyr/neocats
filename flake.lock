@@ -625,22 +625,6 @@
         "type": "github"
       }
     },
-    "plugins-oil-git.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1773786592,
-        "narHash": "sha256-2gySPDND0+P73ANLZJoVHy3Kk7P41OyoogXwEhtruAU=",
-        "owner": "malewicz1337",
-        "repo": "oil-git.nvim",
-        "rev": "85731c6e0deb6da473ca627f09b7de6ca0f07435",
-        "type": "github"
-      },
-      "original": {
-        "owner": "malewicz1337",
-        "repo": "oil-git.nvim",
-        "type": "github"
-      }
-    },
     "plugins-oil.nvim": {
       "flake": false,
       "locked": {
@@ -815,7 +799,6 @@
         "plugins-neotest": "plugins-neotest",
         "plugins-npm-info.nvim": "plugins-npm-info.nvim",
         "plugins-nvim-ufo": "plugins-nvim-ufo",
-        "plugins-oil-git.nvim": "plugins-oil-git.nvim",
         "plugins-oil.nvim": "plugins-oil.nvim",
         "plugins-opencode.nvim": "plugins-opencode.nvim",
         "plugins-promise-async": "plugins-promise-async",

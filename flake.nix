@@ -66,10 +66,6 @@
       flake = false;
     };
 
-    "plugins-oil-git.nvim" = {
-      url = "github:malewicz1337/oil-git.nvim";
-      flake = false;
-    };
 
     "plugins-neotest" = {
       url = "github:nvim-neotest/neotest";
@@ -256,7 +252,6 @@
               file-manager = with pkgs.vimPlugins; [
                 # oil-nvim
                 pkgs.neovimPlugins.oil-nvim
-                pkgs.neovimPlugins.oil-git-nvim
                 mini-icons
               ];
 
