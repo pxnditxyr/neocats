@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773067867,
-        "narHash": "sha256-4vgugcQlvCWM3zGPQ3dfKtlL+eq3jbex4L6bUDXFqfo=",
+        "lastModified": 1774090016,
+        "narHash": "sha256-/xOx05cgfOdQ5UiV5Q4APzCnlLvvoX7hBjxLuybDRJ8=",
         "owner": "Saghen",
         "repo": "blink.cmp",
-        "rev": "e3523b949badd35ac8553bb975698f8d47b6debd",
+        "rev": "62c3d54f7d739ee46f850ea6832383e3b7ca2ee1",
         "type": "github"
       },
       "original": {
@@ -391,11 +391,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1773014724,
-        "narHash": "sha256-foUFwEwhjSnjJVD6gkiR2SlaYhvzV9bwsUQlLUu2DjQ=",
+        "lastModified": 1774051512,
+        "narHash": "sha256-6IlLcSU4DJx6N+iIkorPa5/IGQ/sJLoVWQcqlsxWM98=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "b955e58bea690fdbfc20ff7c249e481ca169ca33",
+        "rev": "1db9d29916c326e55f2e7435a7692b5695090b81",
         "type": "github"
       },
       "original": {
@@ -407,11 +407,11 @@
     "neovim-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1773014294,
-        "narHash": "sha256-JLAIrpQTp8u6blb5iZrAx36fNe65LT+JOUvxiLxlN+8=",
+        "lastModified": 1774050147,
+        "narHash": "sha256-wgd3Jglqc1XSxWyXIHMs0eSmDM5ib+bHpxtlcYG7CT8=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "61f166ec409b7621fcc42e4da40d6ccb19973749",
+        "rev": "3c90cc1234ac66806b7da1e2fd9b0880c959521e",
         "type": "github"
       },
       "original": {
@@ -468,11 +468,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1772822230,
-        "narHash": "sha256-yf3iYLGbGVlIthlQIk5/4/EQDZNNEmuqKZkQssMljuw=",
+        "lastModified": 1773964973,
+        "narHash": "sha256-NV/J+tTER0P5iJhUDL/8HO5MDjDceLQPRUYgdmy5wXw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "71caefce12ba78d84fe618cf61644dce01cf3a96",
+        "rev": "812b3986fd1568f7a858f97fcf425ad996ba7d25",
         "type": "github"
       },
       "original": {
@@ -500,11 +500,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1772771118,
-        "narHash": "sha256-xWzaTvmmACR/SRWtABgI/Z97lcqwJAeoSd5QW1KdK1s=",
+        "lastModified": 1773628058,
+        "narHash": "sha256-hpXH0z3K9xv0fHaje136KY872VT2T5uwxtezlAskQgY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e38213b91d3786389a446dfce4ff5a8aaf6012f2",
+        "rev": "f8573b9c935cfaa162dd62cc9e75ae2db86f85df",
         "type": "github"
       },
       "original": {
@@ -516,11 +516,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1772956932,
-        "narHash": "sha256-M0yS4AafhKxPPmOHGqIV0iKxgNO8bHDWdl1kOwGBwRY=",
+        "lastModified": 1773840656,
+        "narHash": "sha256-9tpvMGFteZnd3gRQZFlRCohVpqooygFuy9yjuyRL2C0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "608d0cadfed240589a7eea422407a547ad626a14",
+        "rev": "9cf7092bdd603554bd8b63c216e8943cf9b12512",
         "type": "github"
       },
       "original": {
@@ -625,6 +625,22 @@
         "type": "github"
       }
     },
+    "plugins-oil-git.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773786592,
+        "narHash": "sha256-2gySPDND0+P73ANLZJoVHy3Kk7P41OyoogXwEhtruAU=",
+        "owner": "malewicz1337",
+        "repo": "oil-git.nvim",
+        "rev": "85731c6e0deb6da473ca627f09b7de6ca0f07435",
+        "type": "github"
+      },
+      "original": {
+        "owner": "malewicz1337",
+        "repo": "oil-git.nvim",
+        "type": "github"
+      }
+    },
     "plugins-oil.nvim": {
       "flake": false,
       "locked": {
@@ -644,11 +660,11 @@
     "plugins-opencode.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1772989697,
-        "narHash": "sha256-xxB6TKn0Nv9GoYc7Mz+rhAUX8OXaHSkD3zZzFgSSHkQ=",
+        "lastModified": 1773858130,
+        "narHash": "sha256-lfsKTKs1urx/idXqc9KKlsWCyk1SUYmhr3C4QQGdiRY=",
         "owner": "nickjvandyke",
         "repo": "opencode.nvim",
-        "rev": "47f92ab676bf1c3d00a40100429c7b089f81a5fc",
+        "rev": "5067c80ee1f37b5f8a54244e184df44944175a84",
         "type": "github"
       },
       "original": {
@@ -692,11 +708,11 @@
     "plugins-sidekick.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1761909278,
-        "narHash": "sha256-ABuILCcKfYViZoFHaCepgIMLjvMEb/SBmGqGHUBucAM=",
+        "lastModified": 1774047901,
+        "narHash": "sha256-ozNjEz4SHe7qP/O5BfX0NvfBgXpIfbvsemZrYntSwWY=",
         "owner": "folke",
         "repo": "sidekick.nvim",
-        "rev": "c2bdf8cfcd87a6be5f8b84322c1b5052e78e302e",
+        "rev": "8ad0ede3ff9065878a853e4b037ba6ac88231fb0",
         "type": "github"
       },
       "original": {
@@ -708,11 +724,11 @@
     "plugins-snacks.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1772353340,
-        "narHash": "sha256-987hqjUll8ICGC6NRP2AKGNVpZODejyiwcVAecdKGl8=",
+        "lastModified": 1774083139,
+        "narHash": "sha256-7lDH1JlTM+H/LWjMlAQPNY6A+xmS/cp+wChy4buGYIU=",
         "owner": "folke",
         "repo": "snacks.nvim",
-        "rev": "9912042fc8bca2209105526ac7534e9a0c2071b2",
+        "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
         "type": "github"
       },
       "original": {
@@ -772,11 +788,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1773071373,
-        "narHash": "sha256-5GfTA24cWNlyzTin2iiH8Mfxl+Oh2qBgEgo2/2r1YWk=",
+        "lastModified": 1773771195,
+        "narHash": "sha256-NF4WhpwAq78rPcP5wZEEEEsUdi7z3R7FhY5Z3KA6jAk=",
         "owner": "prisma",
         "repo": "language-tools",
-        "rev": "ea0b0a3fcb6909dda99a52d3c8e7e6d6a103aa91",
+        "rev": "3bdfdb2e02f93ee6fa5bf4e5f130475b92a3cb38",
         "type": "github"
       },
       "original": {
@@ -799,6 +815,7 @@
         "plugins-neotest": "plugins-neotest",
         "plugins-npm-info.nvim": "plugins-npm-info.nvim",
         "plugins-nvim-ufo": "plugins-nvim-ufo",
+        "plugins-oil-git.nvim": "plugins-oil-git.nvim",
         "plugins-oil.nvim": "plugins-oil.nvim",
         "plugins-opencode.nvim": "plugins-opencode.nvim",
         "plugins-promise-async": "plugins-promise-async",

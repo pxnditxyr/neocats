@@ -2,7 +2,36 @@ return {
   'stevearc/oil.nvim',
   ---@module 'oil'
   ---@type oil.SetupOpts
-  dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  dependencies = {
+    { "echasnovski/mini.icons", opts = {} },
+    {
+      "malewicz1337/oil-git.nvim",
+      opts = {
+        symbols = {
+          file = {
+            added = "󱝹",
+            modified = "",
+            renamed = "->",
+            deleted = "󱂧",
+            copied = "C",
+            conflict = "!",
+            untracked = "❓",
+            ignored = "o",
+          },
+          directory = {
+            added = "󱝹",
+            modified = "",
+            renamed = "->",
+            deleted = "󱂧",
+            copied = "C",
+            conflict = "!",
+            untracked = "❓",
+            ignored = "o",
+          },
+        },
+      },
+    },
+  },
   enabled = require( 'nixCatsUtils' ).enableForCategory( 'file-manager' ),
   -- cmd = { "Oil" },
   lazy = false,
