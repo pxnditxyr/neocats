@@ -66,6 +66,11 @@
       flake = false;
     };
 
+    "plugins-rainbow-delimiters.nvim" = {
+      url = "github:HiPhish/rainbow-delimiters.nvim";
+      flake = false;
+    };
+
 
     "plugins-neotest" = {
       url = "github:nvim-neotest/neotest";
@@ -242,7 +247,7 @@
               syntax = with pkgs.vimPlugins; [
                 all-grammars
                 nvim-treesitter-textobjects
-                rainbow-delimiters-nvim
+                pkgs.neovimPlugins.rainbow-delimiters-nvim
                 nvim-ts-autotag
                 nvim-treesitter-context
                 todo-comments-nvim

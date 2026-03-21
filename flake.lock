@@ -673,6 +673,22 @@
         "type": "github"
       }
     },
+    "plugins-rainbow-delimiters.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773842829,
+        "narHash": "sha256-nqZKbqUeVkwzZlUR+xAKe4cb65DahWgStreRtGUchXE=",
+        "owner": "HiPhish",
+        "repo": "rainbow-delimiters.nvim",
+        "rev": "607a438d8c647a355749973fd295e33505afafde",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HiPhish",
+        "repo": "rainbow-delimiters.nvim",
+        "type": "github"
+      }
+    },
     "plugins-render-markdown.nvim": {
       "flake": false,
       "locked": {
@@ -802,6 +818,7 @@
         "plugins-oil.nvim": "plugins-oil.nvim",
         "plugins-opencode.nvim": "plugins-opencode.nvim",
         "plugins-promise-async": "plugins-promise-async",
+        "plugins-rainbow-delimiters.nvim": "plugins-rainbow-delimiters.nvim",
         "plugins-render-markdown.nvim": "plugins-render-markdown.nvim",
         "plugins-sidekick.nvim": "plugins-sidekick.nvim",
         "plugins-snacks.nvim": "plugins-snacks.nvim",
