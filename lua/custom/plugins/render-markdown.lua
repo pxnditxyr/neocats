@@ -2,9 +2,9 @@ return {
 	"MeanderingProgrammer/render-markdown.nvim",
 	dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
 	enabled = require("nixCatsUtils").enableForCategory("ui"),
-	ft = { "markdown", "Avante" },
+	ft = { "markdown" },
 	opts = {
-		file_types = { "markdown", "Avante" },
+		file_types = { "markdown" },
 		-- Renderiza headings con colores y tamaños diferentes
 		heading = {
 			enabled = true,

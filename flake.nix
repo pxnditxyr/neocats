@@ -281,14 +281,12 @@
 
               ai = with pkgs.vimPlugins; [
                 supermaven-nvim
-                avante-nvim
                 (inputs.mcp-hub-nvim.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs {
                   pname = "mcphub.nvim";
                 })
                 (inputs.nixpkgs-stable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.vimPlugins.copilot-lua)
                 pkgs.neovimPlugins.opencode-nvim
                 plenary-nvim
-                nui-nvim
               ];
 
               dev = with pkgs.vimPlugins; [
